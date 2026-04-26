@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create a central axios instance
 const api = axios.create({
-  baseURL: '/', // Uses the Vite proxy in development
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000',
 });
 
 // Request Interceptor: Attach Authoronization Header automatically
