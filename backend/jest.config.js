@@ -1,0 +1,23 @@
+module.exports = {
+  testEnvironment: 'node',
+  testMatch: ['**/__tests__/**/*.test.js'],
+  setupFilesAfterFramework: ['./jest.setup.js'],
+  collectCoverageFrom: [
+    'controllers/**/*.js',
+    'middleware/**/*.js',
+    'utils/**/*.js'
+  ],
+  coverageThreshold: {
+    global: {
+      branches: 70,
+      functions: 70,
+      lines: 70,
+      statements: 70
+    }
+  },
+  verbose: true,
+  forceExit: true,
+  clearMocks: true,
+  resetMocks: true,
+  restoreMocks: true
+};

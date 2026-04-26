@@ -1,0 +1,465 @@
+{
+  "info": {
+    "name": "SMTBMS Enterprise Complete API",
+    "description": "Complete Postman collection for Smart Material Tracking and Business Management System. Covers Auth, Material, HRMS, ERP, and CRM endpoints.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth Matrix",
+      "item": [
+        {
+          "name": "Admin Operational Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var jsonData = pm.response.json();",
+                  "pm.environment.set(\"admin_token\", jsonData.token);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"admin@smtbms.com\",\n    \"password\": \"Admin@123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          }
+        },
+        {
+          "name": "HR Node Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var jsonData = pm.response.json();",
+                  "pm.environment.set(\"hr_token\", jsonData.token);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"hr@smtbms.com\",\n    \"password\": \"Password@123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Sales Node Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var jsonData = pm.response.json();",
+                  "pm.environment.set(\"sales_token\", jsonData.token);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"sales@smtbms.com\",\n    \"password\": \"Password@123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Verify Current Stakeholder",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/auth/me",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "me"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Material Tracking Flux",
+      "item": [
+        {
+          "name": "Initialize Material Node",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Fiber Optic Cable\",\n    \"code\": \"FOC-1002\",\n    \"category\": \"Electrical\",\n    \"unit\": \"meters\",\n    \"quantity\": 500,\n    \"minStockLevel\": 50,\n    \"department\": \"IT\",\n    \"location\": \"Warehouse Alpha\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/materials",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "materials"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Material Registries",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/materials",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "materials"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Execute Material Transfer (Flux)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"materialId\": \"replace_with_material_id\",\n    \"quantity\": 50,\n    \"fromDepartment\": \"IT\",\n    \"toDepartment\": \"Operations\",\n    \"reason\": \"Field Deployment Protocol\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/movements/transfer",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "movements",
+                "transfer"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "HRMS Matrix",
+      "item": [
+        {
+          "name": "Initialize Employee Stakeholder",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{hr_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Evelyn Price\",\n    \"email\": \"evelyn.price@smtbms.com\",\n    \"phone\": \"9876543210\",\n    \"department\": \"Finance\",\n    \"designation\": \"Financial Analyst\",\n    \"employeeType\": \"full-time\",\n    \"salary\": {\n        \"basic\": 85000,\n        \"allowances\": 12000,\n        \"deductions\": 5000\n    },\n    \"joiningDate\": \"2024-05-01\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/employees",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "employees"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Attendance Synchronization: Check-In",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"employeeId\": \"replace_with_employee_id\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/attendance/checkin",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "attendance",
+                "checkin"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Generate Fiscal Payroll Node",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{hr_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"month\": 5,\n    \"year\": 2024\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/payroll/generate",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "payroll",
+                "generate"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "ERP Operational Flow",
+      "item": [
+        {
+          "name": "Initialize Purchase Order Sequence",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"vendorId\": \"replace_with_vendor_id\",\n    \"items\": [\n        {\n            \"materialId\": \"replace_with_material_id\",\n            \"itemName\": \"Fiber Optic Cable\",\n            \"quantity\": 100,\n            \"unit\": \"meters\",\n            \"unitPrice\": 1500\n        }\n    ],\n    \"taxPercentage\": 18,\n    \"shippingCharges\": 2000,\n    \"expectedDeliveryDate\": \"2024-06-15\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/erp/po",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "erp",
+                "po"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "CRM Stakeholder Integration",
+      "item": [
+        {
+          "name": "Execute Lead Pipeline Conversion (to Deal)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{sales_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"dealName\": \"Global Corp Q3 Expansion\",\n    \"expectedCloseDate\": \"2024-09-30\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/crm/leads/{lead_id_here}/convert",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "crm",
+                "leads",
+                "{lead_id_here}",
+                "convert"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

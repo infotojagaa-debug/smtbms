@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 20px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+    background-clip: content-box;
+  }
+
+  /* Side panel / Dark panel scrollbar */
+  .custom-scrollbar::-webkit-scrollbar { 
+    width: 6px; 
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb { 
+    background: rgba(255,255,255,0.15); 
+    border-radius: 10px; 
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover { 
+    background: rgba(255,255,255,0.3); 
+  }
+
+  .dark-scroll::-webkit-scrollbar-thumb {
+    background: #475569;
+  }
+  .dark-scroll::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+  }
+}
+
+@layer components {
+  /* ── Glassmorphism ── */
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-white/30 shadow-lg;
+  }
+
+  .glass-dark {
+    @apply bg-slate-900/80 backdrop-blur-xl border border-white/10;
+  }
+
+  /* ── Gradient Utilities ── */
+  .gradient-primary {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+  }
+  .gradient-emerald {
+    background: linear-gradient(135deg, #10b981, #059669);
+  }
+  .gradient-amber {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+  }
+  .gradient-violet {
+    background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  }
+  .gradient-rose {
+    background: linear-gradient(135deg, #f43f5e, #e11d48);
+  }
+
+  /* ── Dashboard Role Themes ── */
+  /* Admin: Slate dark */
+  .theme-admin {
+    --accent: #6366f1;
+    --accent-light: #e0e7ff;
+    --surface: #1e293b;
+  }
+  /* HR: Emerald warm */
+  .theme-hr {
+    --accent: #10b981;
+    --accent-light: #d1fae5;
+    --surface: #ffffff;
+  }
+  /* Sales: Amber electric */
+  .theme-sales {
+    --accent: #f59e0b;
+    --accent-light: #fef3c7;
+    --surface: #ffffff;
+  }
+  /* Employee: Violet personal */
+  .theme-employee {
+    --accent: #8b5cf6;
+    --accent-light: #ede9fe;
+    --surface: #ffffff;
+  }
+
+  /* ── Stat Card Base ── */
+  .stat-card {
+    @apply bg-white rounded-3xl border border-slate-200 shadow-sm 
+           hover:shadow-xl hover:-translate-y-1 transition-all duration-300;
+  }
+
+  .stat-card p {
+    @apply text-slate-900;
+  }
+
+  /* ── Button Styles ── */
+  .btn-primary {
+    @apply px-6 py-3 bg-indigo-600 text-white font-black text-xs 
+           uppercase tracking-widest rounded-2xl shadow-lg shadow-indigo-200 
+           hover:bg-indigo-500 active:scale-95 transition-all;
+  }
+
+  .btn-ghost {
+    @apply px-6 py-3 bg-slate-100 text-slate-700 font-black text-xs 
+           uppercase tracking-widest rounded-2xl hover:bg-slate-200 
+           active:scale-95 transition-all;
+  }
+
+  /* ── Badge Pills ── */
+  .badge-emerald { @apply text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-700 border border-emerald-200; }
+  .badge-amber   { @apply text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full bg-amber-100 text-amber-700 border border-amber-200; }
+  .badge-rose    { @apply text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full bg-rose-100 text-rose-700 border border-rose-200; }
+  .badge-violet  { @apply text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full bg-violet-100 text-violet-700 border border-violet-200; }
+  .badge-indigo  { @apply text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full bg-indigo-100 text-indigo-700 border border-indigo-200; }
+}
+
+@layer utilities {
+  /* ── Animation Keyframes ── */
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  @keyframes slide-right {
+    from { opacity: 0; transform: translateX(-20px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes shimmer {
+    0%   { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4); }
+    50%       { box-shadow: 0 0 0 12px rgba(99, 102, 241, 0); }
+  }
+
+  .animate-fade-up    { animation: fade-up 0.5s ease-out both; }
+  .animate-fade-in    { animation: fade-in 0.4s ease-out both; }
+  .animate-slide-right { animation: slide-right 0.4s ease-out both; }
+  .animate-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+  .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+
+  /* ── Stagger Delays ── */
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-400 { animation-delay: 0.4s; }
+  .delay-500 { animation-delay: 0.5s; }
+
+  /* ── Gradient Text ── */
+  .text-gradient-indigo {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-gradient-amber {
+    background: linear-gradient(135deg, #f59e0b, #f97316);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-gradient-emerald {
+    background: linear-gradient(135deg, #10b981, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── Sidebar custom scrollbar ── */
+  .custom-scrollbar::-webkit-scrollbar { width: 3px; }
+  .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+  .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+
+  /* ── Dark panel scrollbar ── */
+  .dark-scroll::-webkit-scrollbar-thumb { background: #334155; }
+}
