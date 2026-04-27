@@ -177,6 +177,10 @@ function App() {
     <>
       <Toaster 
         position="top-right" 
+        containerStyle={{
+          top: 85,
+          zIndex: 99999,
+        }}
         toastOptions={{
           duration: 3000,
           style: {
@@ -254,6 +258,10 @@ function App() {
     <div className="h-screen flex overflow-hidden font-sans bg-[#F1FFF0]">
       <Toaster 
         position="top-right" 
+        containerStyle={{
+          top: 85,
+          zIndex: 99999,
+        }}
         toastOptions={{
           duration: 3000,
           style: {
