@@ -4,10 +4,10 @@ const StatCard = ({ title, value, icon: Icon, trend, positive, bgClass = 'bg-whi
   return (
     <div 
       onClick={onClick}
-      className={`rounded-2xl p-6 border border-slate-100 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] transition-shadow hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] group ${onClick ? 'cursor-pointer hover:border-indigo-400' : 'cursor-default'} ${bgClass}`}>
+      className={`rounded-3xl p-6 border-[1.5px] border-slate-200 shadow-md hover:shadow-xl transition-all duration-300 group ${onClick ? 'cursor-pointer hover:border-indigo-500 hover:-translate-y-1' : 'cursor-default'} ${bgClass}`}>
       <div className="flex justify-between items-start mb-4">
-        <div className={`p-3 rounded-xl transition-colors ${iconBgClass}`}>
-          <Icon size={22} className={iconColorClass} strokeWidth={2.5} />
+        <div className={`p-3 rounded-2xl transition-colors ${iconBgClass}`}>
+          <Icon size={24} className={iconColorClass} strokeWidth={2.5} />
         </div>
         
         {/* Trend Pill */}
