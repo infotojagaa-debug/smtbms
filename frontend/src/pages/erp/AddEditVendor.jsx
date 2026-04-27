@@ -50,7 +50,7 @@ const AddEditVendor = () => {
   return (
     <div className="max-w-4xl mx-auto space-y-10 pb-20">
       <div className="text-center pt-8">
-         <h2 className="text-4xl font-black text-slate-900 tracking-tighter uppercase italic">Add New Supplier</h2>
+         <h2 className="text-3xl lg:text-4xl font-black text-slate-900 tracking-tighter uppercase italic">Add New Supplier</h2>
          <p className="text-slate-500 font-medium">Add details for your new material supplier or partner.</p>
       </div>
 

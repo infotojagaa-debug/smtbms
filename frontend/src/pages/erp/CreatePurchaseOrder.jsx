@@ -144,7 +144,7 @@ const CreatePurchaseOrder = () => {
     <div className="space-y-10 pb-20">
       <div className="flex justify-between items-center">
          <div>
-            <h2 className="text-3xl font-black text-slate-900 tracking-tight uppercase italic">Generate Acquisition Order</h2>
+            <h2 className="text-2xl lg:text-3xl font-black text-slate-900 tracking-tight uppercase italic">Generate Acquisition Order</h2>
             <p className="text-slate-500 font-medium">Initialize a high-fidelity procurement sequence for organizational resources.</p>
          </div>
       </div>

@@ -41,9 +41,9 @@ const LeadManagement = () => {
 
   return (
     <div className="space-y-8 pb-10">
-      <div className="flex justify-between items-center text-slate-900">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-slate-900">
         <div>
-          <h2 className="text-3xl font-black tracking-tight">Lead Capture Terminal</h2>
+          <h2 className="text-2xl lg:text-3xl font-black tracking-tight">Lead Capture Terminal</h2>
           <p className="text-slate-500 font-medium">Manage top-of-funnel acquisition sequences and conversion protocols.</p>
         </div>
         <button className="flex items-center gap-2 px-8 py-4 bg-primary-600 text-white font-black uppercase tracking-widest text-[10px] rounded-3xl shadow-xl shadow-primary-500/20 hover:bg-primary-700 transition-all active:scale-95">

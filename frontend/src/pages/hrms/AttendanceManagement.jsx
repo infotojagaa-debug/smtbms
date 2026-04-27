@@ -47,10 +47,10 @@ const AttendanceManagement = () => {
     <div className="space-y-8 pb-10">
       <div className="flex justify-between items-center">
         <div>
-          <h2 className="text-3xl font-black text-slate-900 tracking-tight">Attendance Operations Center</h2>
+          <h2 className="text-2xl lg:text-3xl font-black text-slate-900 tracking-tight">Attendance Operations Center</h2>
           <p className="text-slate-500 font-medium">Verify workforce availability, audit time logs, and manage organizational attendance cycles.</p>
         </div>
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
            <input 
              type="date" 
              value={date}

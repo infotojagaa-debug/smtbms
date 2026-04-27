@@ -56,14 +56,14 @@ const SalarySlip = () => {
 
   return (
     <div className="space-y-10 pb-20 max-w-5xl mx-auto">
-      <div className="flex justify-between items-center text-slate-900 border-b border-slate-100 pb-10">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-slate-900">
         <div>
-          <h2 className="text-3xl font-black tracking-tight flex items-center gap-4">
+          <h2 className="text-2xl lg:text-3xl font-black tracking-tight flex items-center gap-4">
              <FileText size={32} className="text-primary-600" /> Electronic Compensation Record
           </h2>
           <p className="text-slate-500 font-medium">Standardized salary certificate and statutory deduction ledger.</p>
         </div>
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
            <button 
             onClick={downloadPDF}
             className="flex items-center gap-2 px-8 py-4 bg-slate-900 text-white font-black uppercase tracking-widest text-[10px] rounded-3xl shadow-2xl hover:bg-slate-800 transition-all active:scale-95"

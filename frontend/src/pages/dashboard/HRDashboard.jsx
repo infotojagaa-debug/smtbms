@@ -148,7 +148,7 @@ const HRDashboard = () => {
               </div>
               <span className="text-xs font-black uppercase tracking-widest text-emerald-100">Workforce Hub</span>
             </div>
-            <h2 className="text-4xl font-black text-white tracking-tight leading-none">
+            <h2 className="text-3xl lg:text-4xl font-black text-white tracking-tight leading-none">
               People Intelligence
             </h2>
             <p className="text-emerald-100/80 font-medium mt-3 text-sm max-w-xl">

@@ -117,7 +117,7 @@ const AddEditLead = () => {
   return (
     <div className="max-w-4xl mx-auto space-y-10 pb-20">
       <div className="text-center pt-8">
-         <h2 className="text-4xl font-black text-slate-900 tracking-tighter uppercase italic text-slate-900">Capture New Inquiry</h2>
+         <h2 className="text-3xl lg:text-4xl font-black text-slate-900 tracking-tighter uppercase italic text-slate-900">Capture New Inquiry</h2>
          <p className="text-slate-500 font-medium">Provisioning a new lead into the high-density acquisition pipeline.</p>
       </div>
 

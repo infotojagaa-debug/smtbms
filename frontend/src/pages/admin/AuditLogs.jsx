@@ -57,7 +57,7 @@ const AuditLogs = () => {
           <h2 className="text-2xl font-bold tracking-tight mb-2">Enterprise Audit Ledger</h2>
           <p className="text-slate-500 font-medium text-sm">Mission-critical immutable registry of all state-modifying operational protocols.</p>
         </div>
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
            <button 
              onClick={loadLogs}
              className="p-2.5 bg-white border border-slate-200 rounded-lg text-slate-500 hover:text-indigo-600 hover:border-indigo-200 transition-colors shadow-sm"

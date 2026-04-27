@@ -50,12 +50,12 @@ const Billing = () => {
 
   return (
     <div className="space-y-10 pb-20">
-      <div className="flex justify-between items-center text-slate-900">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-slate-900">
         <div>
-          <h2 className="text-3xl font-black tracking-tight uppercase italic leading-none">Billing & Revenue Matrix</h2>
+          <h2 className="text-2xl lg:text-3xl font-black tracking-tight uppercase italic leading-none">Billing & Revenue Matrix</h2>
           <p className="text-slate-500 font-medium tracking-tight">Generate invoices and track payments for successfully closed deals (Step 5).</p>
         </div>
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
            <button className="flex items-center gap-2 px-6 py-3 bg-white border border-slate-200 text-slate-900 font-black uppercase tracking-widest text-[10px] rounded-2xl shadow-sm hover:bg-slate-50 transition-all">
               <Download size={18} /> Export Ledger
            </button>
@@ -74,7 +74,7 @@ const Billing = () => {
                  onChange={(e) => setSearchTerm(e.target.value)}
                />
             </div>
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
                <div className="px-5 py-3 bg-primary-50 rounded-2xl border border-primary-100 flex items-center gap-3">
                   <IndianRupee className="text-primary-600" size={16} />
                   <span className="text-[10px] font-black uppercase tracking-widest text-primary-600 italic">Financial Terminal Active</span>

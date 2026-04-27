@@ -60,7 +60,7 @@ const CRMDashboard = () => {
           <h2 className="text-2xl lg:text-3xl font-black tracking-tight uppercase italic leading-none">Strategic Intelligence Hub</h2>
           <p className="text-slate-500 font-medium tracking-tight">Consolidated auditing of relationship lifecycle, pipeline velocity, and support satisfaction metrics.</p>
         </div>
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
            <button 
              onClick={() => navigate('/admin/dashboard/crm/customers')}
              className="flex items-center gap-2 px-8 py-3 bg-slate-900 text-white font-black uppercase tracking-widest text-[10px] rounded-3xl shadow-2xl hover:bg-slate-800 transition-all active:scale-95"

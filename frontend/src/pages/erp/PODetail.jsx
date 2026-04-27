@@ -68,19 +68,19 @@ const PODetail = () => {
 
   return (
     <div className="space-y-10 pb-20">
-      <div className="flex justify-between items-center text-slate-900">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-slate-900">
         <div className="flex items-center gap-6">
            <Link to="/erp/purchase-orders" className="p-4 bg-white border border-slate-100 rounded-3xl text-slate-300 hover:text-slate-900 transition-all shadow-sm">
               <ArrowLeft size={22} />
            </Link>
            <div>
-              <h2 className="text-3xl font-black tracking-tight flex items-center gap-4 italic uppercase">
+              <h2 className="text-2xl lg:text-3xl font-black tracking-tight flex items-center gap-4 italic uppercase">
                  {po.poNumber} <span className="px-3 py-1 bg-slate-100 border border-slate-200 text-slate-500 rounded-xl text-[10px] uppercase font-black">{po.status}</span>
               </h2>
               <p className="text-slate-500 font-medium">Acquisition cycle initialized on {new Date(po.createdAt).toLocaleDateString()}</p>
            </div>
         </div>
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
            {po.status === 'draft' && (
              <button 
               onClick={handleApprove}

@@ -97,7 +97,7 @@ const LogCommunicationModal = ({ isOpen, onClose, customerId, leadId, dealId, on
                   <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-4 flex items-center gap-2">
                      <Layout size={12} className="text-primary-500" /> Interaction Channel
                   </label>
-                  <div className="flex gap-4">
+                  <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
                      {['call', 'email', 'meeting', 'whatsapp'].map(type => (
                         <button 
                            key={type}

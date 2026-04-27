@@ -53,15 +53,15 @@ const SalesPersonDashboard = () => {
 
   return (
     <div className="space-y-10 pb-20">
-      <div className="flex justify-between items-center text-slate-900">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-slate-900">
         <div>
            <div className="flex items-center gap-3 mb-2">
-              <h2 className="text-3xl font-black tracking-tight uppercase italic leading-none">Operational Performance Hub</h2>
+              <h2 className="text-2xl lg:text-3xl font-black tracking-tight uppercase italic leading-none">Operational Performance Hub</h2>
               <span className="px-3 py-1 bg-primary-600 text-white rounded-xl text-[9px] font-black uppercase tracking-widest shadow-xl">Sales Representative</span>
            </div>
            <p className="text-slate-500 font-medium tracking-tight">Personalized analytical dashboard for lifecycle management and target achievement monitoring.</p>
         </div>
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
            <button className="flex items-center gap-2 px-8 py-3 bg-slate-900 text-white font-black uppercase tracking-widest text-[10px] rounded-3xl shadow-2xl hover:bg-slate-800 transition-all active:scale-95">
              <Plus size={18} /> Log Proposal
            </button>

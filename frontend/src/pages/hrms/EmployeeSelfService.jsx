@@ -67,7 +67,7 @@ const EmployeeSelfService = () => {
     <div className="space-y-10 pb-20">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
         <div>
-           <h2 className="text-3xl font-black text-slate-900 tracking-tight uppercase italic">Self-Service Terminal</h2>
+           <h2 className="text-2xl lg:text-3xl font-black text-slate-900 tracking-tight uppercase italic">Self-Service Terminal</h2>
            <p className="text-slate-500 font-medium">Manage your corporate credentials, absence requests, and fiscal records.</p>
         </div>
         <div className="flex items-center gap-4 bg-white p-3 rounded-2xl border border-slate-100 shadow-sm">

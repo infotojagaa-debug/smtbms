@@ -46,7 +46,7 @@ const PurchaseOrders = () => {
     <div className="space-y-8 pb-10">
       <div className="flex justify-between items-center">
         <div>
-          <h2 className="text-3xl font-black text-slate-900 tracking-tight">Procurement Lifecycle</h2>
+          <h2 className="text-2xl lg:text-3xl font-black text-slate-900 tracking-tight">Procurement Lifecycle</h2>
           <p className="text-slate-500 font-medium">Manage corporate acquisition pipelines and vendor fulfillment records.</p>
         </div>
         <Link 

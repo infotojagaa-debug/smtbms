@@ -219,7 +219,7 @@ const AddEditDeal = () => {
   return (
     <div className="max-w-4xl mx-auto space-y-10 pb-20">
       <div className="text-center pt-8">
-         <h2 className="text-4xl font-black text-slate-900 tracking-tighter uppercase italic">{isEdit ? 'Modify Strategic Deal' : 'Initialize Strategic Deal'}</h2>
+         <h2 className="text-3xl lg:text-4xl font-black text-slate-900 tracking-tighter uppercase italic">{isEdit ? 'Modify Strategic Deal' : 'Initialize Strategic Deal'}</h2>
          <p className="text-slate-500 font-medium">{isEdit ? 'Re-adjusting portfolio parameters for current engagement.' : 'Provisioning a high-value contract into the organizational revenue pipeline.'}</p>
       </div>
 

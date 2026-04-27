@@ -50,7 +50,7 @@ const EmployeeProfile = () => {
                   {employee.photo ? <img src={employee.photo} alt="" className="w-full h-full object-cover" /> : <div className="w-full h-full flex items-center justify-center text-slate-300"><User size={64} /></div>}
                </div>
                <div className="flex-1 pb-4">
-                  <h2 className="text-3xl font-black text-slate-900 tracking-tight uppercase">{employee.name}</h2>
+                  <h2 className="text-2xl lg:text-3xl font-black text-slate-900 tracking-tight uppercase">{employee.name}</h2>
                   <div className="flex flex-wrap gap-4 mt-2">
                      <span className="flex items-center gap-1.5 text-[10px] font-black uppercase text-slate-400 tracking-widest bg-slate-50 px-3 py-1 rounded-full border border-slate-100">
                         <Briefcase size={12} /> {employee.designation}

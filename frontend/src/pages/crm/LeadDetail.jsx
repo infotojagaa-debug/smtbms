@@ -58,13 +58,13 @@ const LeadDetail = () => {
            </Link>
            <div>
               <div className="flex items-center gap-4 mb-2">
-                 <h2 className="text-3xl font-black tracking-tight leading-none italic uppercase">{lead.title}</h2>
+                 <h2 className="text-2xl lg:text-3xl font-black tracking-tight leading-none italic uppercase">{lead.title}</h2>
                  <span className={`px-3 py-1 border rounded-xl text-[9px] font-black uppercase tracking-widest ${getStatusColor(lead.status)}`}>{lead.status}</span>
               </div>
               <p className="text-slate-400 font-black text-xs tracking-widest uppercase flex items-center gap-2">Protocol Registry: {lead.leadId} • <AlertCircle size={12} className="text-amber-500" /> {lead.priority} Priority</p>
            </div>
         </div>
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
            {lead.status === 'won' && (
              <button className="flex items-center gap-2 px-8 py-4 bg-emerald-600 text-white font-black uppercase tracking-widest text-[10px] rounded-3xl shadow-2xl hover:bg-emerald-700 transition-all active:scale-95">
                <TrendingUp size={18} /> Convert to Deal

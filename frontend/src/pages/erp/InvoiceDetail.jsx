@@ -66,13 +66,13 @@ const InvoiceDetail = () => {
 
   return (
     <div className="space-y-10 pb-20 max-w-5xl mx-auto">
-      <div className="flex justify-between items-center text-slate-900 border-b border-slate-100 pb-10">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-slate-900">
         <div className="flex items-center gap-6">
            <Link to="/erp/invoices" className="p-4 bg-white border border-slate-100 rounded-3xl text-slate-300 hover:text-slate-900 transition-all shadow-sm">
               <ArrowLeft size={22} />
            </Link>
            <div>
-              <h2 className="text-3xl font-black tracking-tight flex items-center gap-4 italic uppercase">
+              <h2 className="text-2xl lg:text-3xl font-black tracking-tight flex items-center gap-4 italic uppercase">
                  {inv.invoiceNumber} <span className={`px-3 py-1 border rounded-xl text-[10px] uppercase font-black ${
                    inv.status === 'paid' ? 'bg-emerald-50 text-emerald-600 border-emerald-100' : 'bg-amber-50 text-amber-600 border-amber-100'
                  }`}>{inv.status}</span>
@@ -80,7 +80,7 @@ const InvoiceDetail = () => {
               <p className="text-slate-500 font-medium">Lifecycle document recognized on {new Date(inv.issueDate).toLocaleDateString()}</p>
            </div>
         </div>
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
            {inv.status !== 'paid' && (
              <button 
               onClick={() => setShowPaymentModal(true)}

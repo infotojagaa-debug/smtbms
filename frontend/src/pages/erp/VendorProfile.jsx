@@ -44,7 +44,7 @@ const VendorProfile = () => {
             <ArrowLeft size={20} />
          </Link>
          <div>
-            <h2 className="text-3xl font-black text-slate-900 tracking-tight uppercase italic flex items-center gap-3">
+            <h2 className="text-2xl lg:text-3xl font-black text-slate-900 tracking-tight uppercase italic flex items-center gap-3">
                {vendor.name} <span className="px-3 py-1 bg-primary-100 text-primary-600 rounded-lg text-[10px] uppercase font-black tracking-widest">{vendor.status}</span>
             </h2>
             <p className="text-slate-500 font-medium">Global identification registry for {vendor.vendorId} ({vendor.category})</p>

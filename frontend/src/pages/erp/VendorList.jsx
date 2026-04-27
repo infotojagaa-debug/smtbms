@@ -35,12 +35,12 @@ const VendorList = () => {
 
   return (
     <div className="space-y-8 pb-10">
-      <div className="flex justify-between items-center text-slate-900">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-slate-900">
         <div>
-          <h2 className="text-3xl font-black tracking-tight uppercase italic text-slate-900">Our Suppliers List</h2>
+          <h2 className="text-2xl lg:text-3xl font-black tracking-tight uppercase italic text-slate-900">Our Suppliers List</h2>
           <p className="text-slate-500 font-medium">Manage all your material suppliers and partners in one place.</p>
         </div>
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
            <button className="flex items-center gap-2 px-6 py-3 bg-white border border-slate-200 text-slate-900 font-black uppercase tracking-widest text-[10px] rounded-2xl shadow-sm hover:bg-slate-50 transition-all">
              <Download size={18} /> Download List
            </button>

@@ -141,7 +141,7 @@ const ManagerRequests = () => {
       {/* Header */}
       <div className="flex justify-between items-end flex-wrap gap-4">
         <div>
-          <h2 className="text-3xl font-black tracking-tight text-slate-900">Resource Requisitions</h2>
+          <h2 className="text-2xl lg:text-3xl font-black tracking-tight text-slate-900">Resource Requisitions</h2>
           <p className="font-medium text-slate-500">Manage material requests for internal team & external clients.</p>
         </div>
         <button

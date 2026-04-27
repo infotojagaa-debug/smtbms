@@ -77,7 +77,7 @@ const NotificationCenter = () => {
           <h2 className="text-5xl font-black tracking-tighter uppercase italic leading-none">Intelligence Protocol Hub</h2>
           <p className="text-slate-600 font-black text-xs uppercase tracking-widest pl-4 border-l-4 border-primary-600">Enterprise notification registry with real-time categorical alerting.</p>
         </div>
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
            <button 
              onClick={() => dispatch(markAllAsRead())}
              className="flex items-center gap-2 px-10 py-4 bg-slate-900 text-white font-black uppercase tracking-widest text-[10px] rounded-[1.5rem] hover:bg-slate-800 transition-all active:scale-95 shadow-xl shadow-slate-200"

@@ -350,7 +350,7 @@ const FieldAudit = () => {
               {/* Q1 */}
               <div className="p-6 bg-slate-50/50 border border-slate-100 rounded-2xl">
                  <p className="font-black text-slate-800 mb-4 text-[15px]">Is Store Branding Present? <span className="text-rose-500">*</span></p>
-                 <div className="flex gap-4">
+                 <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
                     {['Yes', 'No'].map(opt => (
                       <button 
                         key={opt}
@@ -368,7 +368,7 @@ const FieldAudit = () => {
               {/* Q2 */}
               <div className="p-6 bg-slate-50/50 border border-slate-100 rounded-2xl">
                  <p className="font-black text-slate-800 mb-4 text-[15px]">Cleanliness Rating <span className="text-rose-500">*</span></p>
-                 <div className="flex gap-4">
+                 <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
                     {['Good', 'Average', 'Poor'].map(opt => (
                       <button 
                         key={opt}
@@ -400,7 +400,7 @@ const FieldAudit = () => {
               {/* Q3 */}
               <div className="p-6 bg-slate-50/50 border border-slate-100 rounded-2xl">
                  <p className="font-black text-slate-800 mb-4 text-[15px]">Competitor Activity Detected? <span className="text-rose-500">*</span></p>
-                 <div className="flex gap-4">
+                 <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
                     {['Yes', 'No'].map(opt => (
                       <button 
                         key={opt}

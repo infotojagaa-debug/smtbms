@@ -53,12 +53,12 @@ const PayrollProcessing = () => {
 
   return (
     <div className="space-y-10 pb-10">
-      <div className="flex justify-between items-center text-slate-900">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-slate-900">
         <div>
-          <h2 className="text-3xl font-black tracking-tight">Financial Compensation Engine</h2>
+          <h2 className="text-2xl lg:text-3xl font-black tracking-tight">Financial Compensation Engine</h2>
           <p className="text-slate-500 font-medium">Automate monthly payroll generation, audit fiscal deductions, and finalize workforce settlements.</p>
         </div>
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
            <div className="bg-white p-2 rounded-2xl border border-slate-100 shadow-sm flex gap-2">
               <select 
                 value={month} 

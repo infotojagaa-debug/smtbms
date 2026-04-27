@@ -66,7 +66,7 @@ const DealDetail = () => {
            </Link>
            <div>
               <div className="flex items-center gap-4 mb-2">
-                 <h2 className="text-3xl font-black tracking-tight leading-none italic uppercase">{deal.title}</h2>
+                 <h2 className="text-2xl lg:text-3xl font-black tracking-tight leading-none italic uppercase">{deal.title}</h2>
                  <span className={`px-3 py-1 border rounded-xl text-[9px] font-black uppercase tracking-widest ${
                    deal.stage === 'closed-won' ? 'bg-emerald-50 text-emerald-600 border-emerald-100' : 'bg-primary-50 text-primary-600 border-primary-100'
                  }`}>{deal.stage}</span>
@@ -74,7 +74,7 @@ const DealDetail = () => {
               <p className="text-slate-400 font-black text-xs tracking-widest uppercase flex items-center gap-2">Contractual Registry: {deal.dealId} • {deal.probability}% Probability Anchor</p>
            </div>
         </div>
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
            {deal.stage !== 'closed-won' && deal.stage !== 'closed-lost' && (
              <>
                <button className="flex items-center gap-2 px-8 py-4 bg-slate-100 text-slate-900 font-black uppercase tracking-widest text-[10px] rounded-3xl hover:bg-slate-200 transition-all active:scale-95">

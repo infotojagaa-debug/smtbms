@@ -70,9 +70,9 @@ const MaterialList = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center text-slate-900">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-slate-900">
         <div>
-          <h2 className="text-3xl font-black tracking-tight text-slate-900">Company Stock List</h2>
+          <h2 className="text-2xl lg:text-3xl font-black tracking-tight text-slate-900">Company Stock List</h2>
           <p className="text-slate-500 font-medium mt-1">Monitor available stock levels and manage master data.</p>
         </div>
         <div className="flex gap-3">

@@ -44,7 +44,7 @@ const SalesPipeline = () => {
     <div className="space-y-10 pb-10">
       <div className="flex justify-between items-center">
         <div>
-          <h2 className="text-3xl font-black text-slate-900 tracking-tight">Sales Pipeline Kanban</h2>
+          <h2 className="text-2xl lg:text-3xl font-black text-slate-900 tracking-tight">Sales Pipeline Kanban</h2>
           <p className="text-slate-500 font-medium">Visualize deal velocity, stage distribution, and acquisition probability.</p>
         </div>
         <button className="flex items-center gap-2 px-8 py-4 bg-slate-900 text-white font-black uppercase tracking-widest text-[10px] rounded-3xl shadow-2xl hover:bg-slate-800 transition-all active:scale-95">

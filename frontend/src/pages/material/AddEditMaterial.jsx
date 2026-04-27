@@ -58,7 +58,7 @@ const AddEditMaterial = () => {
           <ArrowLeft size={20} />
         </button>
         <div>
-          <h2 className="text-3xl font-black text-slate-900 tracking-tight">Add New Resource</h2>
+          <h2 className="text-2xl lg:text-3xl font-black text-slate-900 tracking-tight">Add New Resource</h2>
           <p className="text-slate-500 font-medium">Register unique materials into the enterprise master data.</p>
         </div>
       </div>

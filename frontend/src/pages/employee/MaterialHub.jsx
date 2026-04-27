@@ -170,7 +170,7 @@ const MaterialHub = () => {
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#FFF9F9] rounded-full -mr-32 -mt-32 transition-transform duration-1000 group-hover/form:scale-110"></div>
             
             <div className="relative z-10 mb-12">
-              <h2 className="text-3xl font-black text-slate-900 italic uppercase">
+              <h2 className="text-2xl lg:text-3xl font-black text-slate-900 italic uppercase">
                 {activeTab === 'use' ? 'Submit Consumption' : 'Material Request'}
               </h2>
               <p className="text-slate-400 text-[10px] font-black uppercase tracking-[0.3em] mt-2 border-l-2 border-rose-500 pl-4">Provide parameters for inventory synchronization</p>

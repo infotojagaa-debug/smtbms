@@ -76,7 +76,7 @@ const TicketDetail = () => {
            </Link>
            <div>
               <div className="flex items-center gap-4 mb-2">
-                 <h2 className="text-3xl font-black tracking-tight leading-none italic uppercase">{ticket.subject}</h2>
+                 <h2 className="text-2xl lg:text-3xl font-black tracking-tight leading-none italic uppercase">{ticket.subject}</h2>
                  <span className={`px-3 py-1 border rounded-xl text-[9px] font-black uppercase tracking-widest ${
                    ticket.status === 'resolved' ? 'bg-emerald-50 text-emerald-600 border-emerald-100' : 'bg-primary-50 text-primary-600 border-primary-100'
                  }`}>{ticket.status}</span>
@@ -84,7 +84,7 @@ const TicketDetail = () => {
               <p className="text-slate-400 font-black text-xs tracking-widest uppercase flex items-center gap-2">Ticket Registry: {ticket.ticketId} • <ShieldAlert size={12} className="text-amber-500" /> {ticket.priority} Priority</p>
            </div>
         </div>
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
            {ticket.status !== 'resolved' && (
              <button 
               onClick={handleResolve}

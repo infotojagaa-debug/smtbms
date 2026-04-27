@@ -80,7 +80,7 @@ const AddEditTicket = () => {
   return (
     <div className="max-w-4xl mx-auto space-y-10 pb-20">
       <div className="text-center pt-8 text-slate-900">
-         <h2 className="text-4xl font-black tracking-tighter uppercase italic">Initialize Support Case</h2>
+         <h2 className="text-3xl lg:text-4xl font-black tracking-tighter uppercase italic">Initialize Support Case</h2>
          <p className="text-slate-500 font-medium italic">Provisioning a new customer help request into the help desk resolution pipeline.</p>
       </div>
 

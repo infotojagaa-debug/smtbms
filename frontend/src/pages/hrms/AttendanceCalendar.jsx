@@ -49,7 +49,7 @@ const AttendanceCalendar = () => {
     <div className="space-y-10">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
         <div>
-          <h2 className="text-3xl font-black text-slate-900 tracking-tight">Daily Performance Terminal</h2>
+          <h2 className="text-2xl lg:text-3xl font-black text-slate-900 tracking-tight">Daily Performance Terminal</h2>
           <p className="text-slate-500 font-medium">Capture your shift metrics and verify active duty status.</p>
         </div>
         <div className="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-xl flex items-center gap-6">

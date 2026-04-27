@@ -46,7 +46,7 @@ const CustomerProfile = () => {
             </div>
             <div>
                <div className="flex items-center gap-4 mb-2">
-                  <h2 className="text-3xl font-black tracking-tight text-slate-900 leading-none italic uppercase">{customer.name}</h2>
+                  <h2 className="text-2xl lg:text-3xl font-black tracking-tight text-slate-900 leading-none italic uppercase">{customer.name}</h2>
                   <span className="px-3 py-1 bg-emerald-50 text-emerald-600 rounded-lg text-[9px] font-black uppercase tracking-widest border border-emerald-100">{customer.status}</span>
                </div>
                <p className="font-black text-slate-400 text-xs italic uppercase flex items-center gap-2"><Building2 size={16} className="text-primary-500" /> {customer.company} • {customer.designation}</p>

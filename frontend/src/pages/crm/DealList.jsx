@@ -76,12 +76,12 @@ const DealList = () => {
 
   return (
     <div className="space-y-10 pb-20">
-      <div className="flex justify-between items-center text-slate-900">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-slate-900">
         <div>
-          <h2 className="text-3xl font-black tracking-tight uppercase italic leading-none text-slate-900">Business Deals History</h2>
+          <h2 className="text-2xl lg:text-3xl font-black tracking-tight uppercase italic leading-none text-slate-900">Business Deals History</h2>
           <p className="text-slate-500 font-medium tracking-tight">Monitor all your successful and lost deals in one clear view.</p>
         </div>
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
            <div className="flex bg-slate-100 p-1.5 rounded-2xl border border-slate-200">
               <button onClick={() => setViewMode('list')} className={`p-2.5 rounded-xl transition-all ${viewMode === 'list' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-400'}`}><ListIcon size={18} /></button>
               <button onClick={() => setViewMode('stages')} className={`p-2.5 rounded-xl transition-all ${viewMode === 'stages' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-400'}`}><Layout size={18} /></button>

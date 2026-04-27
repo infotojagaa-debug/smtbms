@@ -63,14 +63,14 @@ const AddEditCustomer = () => {
 
   return (
     <div className="max-w-4xl mx-auto space-y-12 pb-20">
-      <div className="flex justify-between items-center text-slate-900">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-slate-900">
         <div className="flex items-center gap-6">
            <button onClick={() => navigate(-1)} className="p-4 bg-white border border-slate-100 rounded-2xl text-slate-300 hover:text-slate-900 transition-all shadow-sm">
               <ArrowLeft size={22} />
            </button>
-           <h2 className="text-3xl font-black tracking-tight uppercase italic leading-none text-slate-900">Add New Customer</h2>
+           <h2 className="text-2xl lg:text-3xl font-black tracking-tight uppercase italic leading-none text-slate-900">Add New Customer</h2>
         </div>
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
            {steps.map(s => (
               <div key={s.id} className={`w-3 h-3 rounded-full transition-all duration-500 ${step >= s.id ? 'bg-primary-600 scale-125' : 'bg-slate-200'}`}></div>
            ))}

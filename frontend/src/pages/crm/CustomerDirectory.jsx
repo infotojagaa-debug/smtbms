@@ -28,9 +28,9 @@ const CustomerDirectory = () => {
 
   return (
     <div className="space-y-8 pb-10">
-      <div className="flex justify-between items-center text-slate-900">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-slate-900">
         <div>
-          <h2 className="text-3xl font-black tracking-tight">Enterprise Client Portfolios</h2>
+          <h2 className="text-2xl lg:text-3xl font-black tracking-tight">Enterprise Client Portfolios</h2>
           <p className="text-slate-500 font-medium">Global customer directory, relationship longevity, and account health analytics.</p>
         </div>
         <div className="flex bg-white p-2 rounded-2xl border border-slate-200 shadow-sm">

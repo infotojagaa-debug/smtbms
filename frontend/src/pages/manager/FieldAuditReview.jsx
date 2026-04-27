@@ -61,7 +61,7 @@ const FieldAuditReview = () => {
            </h1>
            <p className="text-slate-400 font-medium mt-2">Review field reports, verify coordinates, and assess flagged anomalies.</p>
         </div>
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
            <div className="bg-slate-800 px-6 py-3 rounded-xl border border-slate-700">
               <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Pending Reviews</p>
               <p className="text-2xl font-bold text-indigo-400">{audits.filter(a => a.status === 'Submitted').length}</p>
@@ -122,7 +122,7 @@ const FieldAuditReview = () => {
                 {/* Header Profile */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 pb-8 border-b-2 border-slate-50 gap-6">
                    <div>
-                      <h2 className="text-4xl font-black text-slate-900 tracking-tighter mb-3">{selectedAudit.storeName}</h2>
+                      <h2 className="text-3xl lg:text-4xl font-black text-slate-900 tracking-tighter mb-3">{selectedAudit.storeName}</h2>
                       <div className="flex flex-wrap items-center gap-4">
                         <div className="flex items-center gap-2 bg-slate-50 px-4 py-2 rounded-xl border border-slate-100">
                           <MapPin size={16} className="text-[#5B4DFC]" /> 

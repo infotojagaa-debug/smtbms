@@ -124,7 +124,7 @@ const PayrollManagement = () => {
          <div className="absolute inset-0 bg-gradient-to-r from-primary-600/10 to-transparent opacity-50 group-hover:scale-110 transition-transform duration-[2s]"></div>
          <div className="relative z-10 flex flex-col md:flex-row justify-between items-center gap-10">
             <div>
-               <h2 className="text-4xl font-black text-white italic uppercase tracking-tighter">Workforce <span className="text-primary-400">Payroll</span></h2>
+               <h2 className="text-3xl lg:text-4xl font-black text-white italic uppercase tracking-tighter">Workforce <span className="text-primary-400">Payroll</span></h2>
                <p className="text-slate-400 font-bold mt-4 max-w-sm">
                  Corporate-grade financial settlement node. Process and manage employee earnings with high-fidelity automation.
                </p>

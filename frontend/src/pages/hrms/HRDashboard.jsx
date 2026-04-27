@@ -51,7 +51,7 @@ const HRDashboard = () => {
     <div className="space-y-8 pb-10">
       <div className="flex justify-between items-center">
         <div>
-          <h2 className="text-3xl font-black text-slate-900 tracking-tight">Workforce Intelligence</h2>
+          <h2 className="text-2xl lg:text-3xl font-black text-slate-900 tracking-tight">Workforce Intelligence</h2>
           <p className="text-slate-500 font-medium">Global organizational demographics and personnel performance analytics.</p>
         </div>
       </div>
