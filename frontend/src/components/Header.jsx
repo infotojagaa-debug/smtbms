@@ -5,14 +5,15 @@ import {
   Clock as ClockIcon,
   Wifi,
   LogOut,
-  UserCircle
+  UserCircle,
+  Menu
 } from 'lucide-react';
 import { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { logout } from '../redux/slices/authSlice';
 import NotificationBell from './NotificationBell';
 
-const Header = () => {
+const Header = ({ toggleSidebar }) => {
   const { user } = useSelector((state) => state.auth);
   const { onlineCount } = useSelector((state) => state.socket);
   const dispatch = useDispatch();
@@ -52,10 +53,16 @@ const Header = () => {
   };
 
   return (
-    <header className="h-20 flex items-center justify-between px-10 shrink-0 relative z-30 bg-white/90 backdrop-blur-xl border-b border-slate-100 shadow-sm">
-      <div className="flex items-center gap-8">
+    <header className="h-20 flex items-center justify-between px-4 lg:px-10 shrink-0 relative z-30 bg-white/90 backdrop-blur-xl border-b border-slate-100 shadow-sm">
+      <div className="flex items-center gap-4 lg:gap-8">
+         <button 
+           onClick={toggleSidebar} 
+           className="lg:hidden p-2 -ml-2 text-slate-500 hover:text-slate-900 transition-colors"
+         >
+           <Menu size={24} />
+         </button>
          <div className="flex flex-col">
-            <h3 className="text-base font-bold text-slate-900 leading-none">
+            <h3 className="text-sm lg:text-base font-bold text-slate-900 leading-none">
               {user?.role === 'Admin' ? 'Command Center' :
                user?.role === 'HR' ? 'People Hub' :
                user?.role === 'Sales' ? 'Revenue Cockpit' : 

@@ -105,6 +105,7 @@ import { setConnected, updateOnlineCount, handleUserOnline, handleUserOffline } 
 import { AlertCircle, Clock } from 'lucide-react';
 
 function App() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
 
@@ -255,7 +256,7 @@ function App() {
       </Routes>
     </>
   ) : (
-    <div className="h-screen flex overflow-hidden font-sans bg-[#F1FFF0]">
+    <div className="h-screen flex overflow-hidden font-sans bg-[#F1FFF0] relative">
       <Toaster 
         position="top-right" 
         containerStyle={{
@@ -272,12 +273,20 @@ function App() {
         }}
       />
       
-      {user && <Sidebar />}
+      {/* Mobile Overlay */}
+      {isSidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-slate-900/50 z-40 lg:hidden"
+          onClick={() => setIsSidebarOpen(false)}
+        />
+      )}
+      
+      {user && <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />}
       
       <div className="flex-1 flex flex-col min-w-0 h-screen overflow-hidden">
-        {user && <Header />}
+        {user && <Header toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)} />}
         
-        <main className={`flex-1 overflow-x-hidden overflow-y-auto ${user ? 'p-6' : ''}`}>
+        <main className={`flex-1 overflow-x-hidden overflow-y-auto ${user ? 'p-4 lg:p-6' : ''}`}>
           <Routes>
             <Route path="/login" element={!user ? <Login /> : <Navigate to="/" />} />
             

@@ -32,7 +32,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../redux/slices/authSlice';
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen, setIsOpen }) => {
   const location = useLocation();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
@@ -225,7 +225,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="w-64 bg-slate-900 text-white flex flex-col h-full shadow-lg relative z-20 font-sans">
+    <div className={`fixed inset-y-0 left-0 z-50 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:relative lg:translate-x-0 transition-transform duration-300 ease-in-out w-64 bg-slate-900 text-white flex flex-col h-full shadow-[20px_0_40px_rgba(0,0,0,0.5)] lg:shadow-lg font-sans`}>
       <div className="p-6 border-b border-white/5 flex items-center gap-4">
         <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center font-bold text-xl shadow-lg shadow-indigo-600/20">S</div>
         <div>
@@ -276,6 +276,7 @@ const Sidebar = () => {
               ) : (
                 // Regular items: navigate on click
                 <Link
+                  onClick={() => setIsOpen && setIsOpen(false)}
                   to={item.path}
                   className={`flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-200 group ${
                     isActive
@@ -301,6 +302,7 @@ const Sidebar = () => {
                   {item.sub.map(sub => (
                     <Link
                       key={sub.name}
+                      onClick={() => setIsOpen && setIsOpen(false)}
                       to={sub.path}
                       className={`flex items-center gap-3 px-4 py-2.5 text-xs font-semibold rounded-xl transition-all ${
                         location.pathname === sub.path
@@ -327,6 +329,7 @@ const Sidebar = () => {
                {adminItems.map(item => (
                   <Link
                     key={item.name}
+                    onClick={() => setIsOpen && setIsOpen(false)}
                     to={item.path}
                     className={`flex items-center justify-between px-4 py-3 rounded-xl transition-all ${
                       location.pathname === item.path ? 'bg-slate-800 text-white' : 'text-slate-400 hover:text-white hover:bg-slate-800'
