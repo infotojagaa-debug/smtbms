@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import api from '../../utils/api';
 
 const initialState = {
   leads: [],
@@ -20,7 +20,7 @@ const getAuthHeader = () => {
 // Lead Thunks
 export const fetchLeads = createAsyncThunk('crm/fetchLeads', async (_, thunkAPI) => {
   try {
-    const response = await axios.get('/api/leads', getAuthHeader());
+    const response = await api.get('/api/leads', getAuthHeader());
     return response.data;
   } catch (error) {
     const message = error.response?.data?.message || error.message;
@@ -30,7 +30,7 @@ export const fetchLeads = createAsyncThunk('crm/fetchLeads', async (_, thunkAPI)
 
 export const convertLead = createAsyncThunk('crm/convertLead', async (id, thunkAPI) => {
   try {
-    const response = await axios.post(`/api/leads/${id}/convert`, {}, getAuthHeader());
+    const response = await api.post(`/api/leads/${id}/convert`, {}, getAuthHeader());
     return response.data;
   } catch (error) {
     const message = error.response?.data?.message || error.message;
@@ -41,7 +41,7 @@ export const convertLead = createAsyncThunk('crm/convertLead', async (id, thunkA
 // Deal Thunks
 export const fetchDeals = createAsyncThunk('crm/fetchDeals', async (_, thunkAPI) => {
   try {
-    const response = await axios.get('/api/deals', getAuthHeader());
+    const response = await api.get('/api/deals', getAuthHeader());
     return response.data;
   } catch (error) {
     const message = error.response?.data?.message || error.message;
@@ -51,7 +51,7 @@ export const fetchDeals = createAsyncThunk('crm/fetchDeals', async (_, thunkAPI)
 
 export const updateDealStage = createAsyncThunk('crm/updateDeal', async ({ id, stage }, thunkAPI) => {
   try {
-    const response = await axios.patch(`/api/deals/${id}`, { stage }, getAuthHeader());
+    const response = await api.patch(`/api/deals/${id}`, { stage }, getAuthHeader());
     return response.data;
   } catch (error) {
     const message = error.response?.data?.message || error.message;
@@ -62,7 +62,7 @@ export const updateDealStage = createAsyncThunk('crm/updateDeal', async ({ id, s
 // Customer Thunks
 export const fetchCustomers = createAsyncThunk('crm/fetchCustomers', async (_, thunkAPI) => {
   try {
-    const response = await axios.get('/api/customers', getAuthHeader());
+    const response = await api.get('/api/customers', getAuthHeader());
     return response.data;
   } catch (error) {
     const message = error.response?.data?.message || error.message;
@@ -103,3 +103,4 @@ export const crmSlice = createSlice({
 
 export const { reset } = crmSlice.actions;
 export default crmSlice.reducer;
+

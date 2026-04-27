@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import api from '../../utils/api';
 
 const API_URL = '/api/notifications';
 const getAuth = () => ({ headers: { Authorization: `Bearer ${JSON.parse(sessionStorage.getItem('user')).token}` } });
@@ -12,29 +12,29 @@ export const fetchNotifications = createAsyncThunk('notifications/fetch', async 
     if (type) url += `&type=${type}`;
     if (priority) url += `&priority=${priority}`;
     
-    return (await axios.get(url, getAuth())).data;
+    return (await api.get(url, getAuth())).data;
   } catch (e) {
     return thunk.rejectWithValue(e.response.data.message);
   }
 });
 
 export const fetchUnreadCount = createAsyncThunk('notifications/count', async (_, thunk) => {
-  try { return (await axios.get(`${API_URL}/count`, getAuth())).data; } 
+  try { return (await api.get(`${API_URL}/count`, getAuth())).data; } 
   catch (e) { return thunk.rejectWithValue(e.response.data.message); }
 });
 
 export const markAsRead = createAsyncThunk('notifications/markRead', async (id, thunk) => {
-  try { return (await axios.put(`${API_URL}/${id}/read`, {}, getAuth())).data; } 
+  try { return (await api.put(`${API_URL}/${id}/read`, {}, getAuth())).data; } 
   catch (e) { return thunk.rejectWithValue(e.response.data.message); }
 });
 
 export const markAllAsRead = createAsyncThunk('notifications/markAllRead', async (_, thunk) => {
-  try { return (await axios.put(`${API_URL}/read-all`, {}, getAuth())).data; } 
+  try { return (await api.put(`${API_URL}/read-all`, {}, getAuth())).data; } 
   catch (e) { return thunk.rejectWithValue(e.response.data.message); }
 });
 
 export const clearNotifications = createAsyncThunk('notifications/clear', async (_, thunk) => {
-  try { return (await axios.delete(API_URL + '/clear', getAuth())).data; } 
+  try { return (await api.delete(API_URL + '/clear', getAuth())).data; } 
   catch (e) { return thunk.rejectWithValue(e.response.data.message); }
 });
 
@@ -97,3 +97,4 @@ const notificationSlice = createSlice({
 
 export const { addNotification, updateNotification } = notificationSlice.actions;
 export default notificationSlice.reducer;
+

@@ -1,16 +1,16 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import api from '../../utils/api';
 
 const API_URL = '/api/erp';
 const getAuth = () => ({ headers: { Authorization: `Bearer ${JSON.parse(sessionStorage.getItem('user')).token}` } });
 
 export const fetchVendors = createAsyncThunk('vendors/fetch', async (params, thunk) => {
-  try { return (await axios.get(`${API_URL}/vendors`, { ...getAuth(), params })).data; } 
+  try { return (await api.get(`${API_URL}/vendors`, { ...getAuth(), params })).data; } 
   catch (e) { return thunk.rejectWithValue(e.response.data.message); }
 });
 
 export const createVendor = createAsyncThunk('vendors/create', async (data, thunk) => {
-  try { return (await axios.post(`${API_URL}/vendors`, data, getAuth())).data; } 
+  try { return (await api.post(`${API_URL}/vendors`, data, getAuth())).data; } 
   catch (e) { return thunk.rejectWithValue(e.response.data.message); }
 });
 
@@ -27,3 +27,4 @@ const vendorSlice = createSlice({
 });
 
 export default vendorSlice.reducer;
+

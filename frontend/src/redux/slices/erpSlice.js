@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import api from '../../utils/api';
 
 const initialState = {
   vendors: [],
@@ -20,7 +20,7 @@ const getAuthHeader = () => {
 // Vendor Thunks
 export const fetchVendors = createAsyncThunk('erp/fetchVendors', async (_, thunkAPI) => {
   try {
-    const response = await axios.get('/api/vendors', getAuthHeader());
+    const response = await api.get('/api/vendors', getAuthHeader());
     return response.data;
   } catch (error) {
     const message = error.response?.data?.message || error.message;
@@ -31,7 +31,7 @@ export const fetchVendors = createAsyncThunk('erp/fetchVendors', async (_, thunk
 // Order Thunks
 export const fetchOrders = createAsyncThunk('erp/fetchOrders', async (_, thunkAPI) => {
   try {
-    const response = await axios.get('/api/orders', getAuthHeader());
+    const response = await api.get('/api/orders', getAuthHeader());
     return response.data;
   } catch (error) {
     const message = error.response?.data?.message || error.message;
@@ -41,7 +41,7 @@ export const fetchOrders = createAsyncThunk('erp/fetchOrders', async (_, thunkAP
 
 export const updateOrderStatus = createAsyncThunk('erp/updateStatus', async ({ id, status }, thunkAPI) => {
   try {
-    const response = await axios.patch(`/api/orders/${id}/status`, { status }, getAuthHeader());
+    const response = await api.patch(`/api/orders/${id}/status`, { status }, getAuthHeader());
     return response.data;
   } catch (error) {
     const message = error.response?.data?.message || error.message;
@@ -52,7 +52,7 @@ export const updateOrderStatus = createAsyncThunk('erp/updateStatus', async ({ i
 // Finance Thunks
 export const createOrder = createAsyncThunk('erp/createOrder', async (orderData, thunkAPI) => {
   try {
-    const response = await axios.post('/api/orders', orderData, getAuthHeader());
+    const response = await api.post('/api/orders', orderData, getAuthHeader());
     return response.data;
   } catch (error) {
     const message = error.response?.data?.message || error.message;
@@ -62,7 +62,7 @@ export const createOrder = createAsyncThunk('erp/createOrder', async (orderData,
 
 export const fetchInvoices = createAsyncThunk('erp/fetchInvoices', async (_, thunkAPI) => {
   try {
-    const response = await axios.get('/api/finance/invoices', getAuthHeader());
+    const response = await api.get('/api/finance/invoices', getAuthHeader());
     return response.data;
   } catch (error) {
     const message = error.response?.data?.message || error.message;
@@ -72,7 +72,7 @@ export const fetchInvoices = createAsyncThunk('erp/fetchInvoices', async (_, thu
 
 export const fetchExpenses = createAsyncThunk('erp/fetchExpenses', async (_, thunkAPI) => {
   try {
-    const response = await axios.get('/api/finance/expenses', getAuthHeader());
+    const response = await api.get('/api/finance/expenses', getAuthHeader());
     return response.data;
   } catch (error) {
     const message = error.response?.data?.message || error.message;
@@ -113,3 +113,4 @@ export const erpSlice = createSlice({
 
 export const { reset } = erpSlice.actions;
 export default erpSlice.reducer;
+

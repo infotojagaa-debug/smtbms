@@ -1,16 +1,16 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import api from '../../utils/api';
 
 const API_URL = '/api/crm/customers';
 const getAuth = () => ({ headers: { Authorization: `Bearer ${JSON.parse(sessionStorage.getItem('user')).token}` } });
 
 export const fetchCustomers = createAsyncThunk('customers/fetch', async (params, thunk) => {
-  try { return (await axios.get(API_URL, { ...getAuth(), params })).data; } 
+  try { return (await api.get(API_URL, { ...getAuth(), params })).data; } 
   catch (e) { return thunk.rejectWithValue(e.response.data.message); }
 });
 
 export const fetchCustomerDetails = createAsyncThunk('customers/fetchDetails', async (id, thunk) => {
-  try { return (await axios.get(`${API_URL}/${id}`, getAuth())).data; } 
+  try { return (await api.get(`${API_URL}/${id}`, getAuth())).data; } 
   catch (e) { return thunk.rejectWithValue(e.response.data.message); }
 });
 
@@ -26,3 +26,4 @@ const customerSlice = createSlice({
 });
 
 export default customerSlice.reducer;
+

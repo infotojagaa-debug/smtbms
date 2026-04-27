@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import api from '../../utils/api';
 
 const initialState = {
   employees: [],
@@ -21,7 +21,7 @@ const getAuthHeader = () => {
 // Payroll Thunks
 export const generatePayroll = createAsyncThunk('hrms/generatePayroll', async (data, thunkAPI) => {
   try {
-    const response = await axios.post('/api/payroll/generate', data, getAuthHeader());
+    const response = await api.post('/api/payroll/generate', data, getAuthHeader());
     return response.data;
   } catch (error) {
     const message = error.response?.data?.message || error.message;
@@ -31,7 +31,7 @@ export const generatePayroll = createAsyncThunk('hrms/generatePayroll', async (d
 
 export const fetchPayroll = createAsyncThunk('hrms/fetchPayroll', async (_, thunkAPI) => {
   try {
-    const response = await axios.get('/api/payroll', getAuthHeader());
+    const response = await api.get('/api/payroll', getAuthHeader());
     return response.data;
   } catch (error) {
     const message = error.response?.data?.message || error.message;
@@ -41,7 +41,7 @@ export const fetchPayroll = createAsyncThunk('hrms/fetchPayroll', async (_, thun
 
 export const markPaid = createAsyncThunk('hrms/markPaid', async (id, thunkAPI) => {
   try {
-    const response = await axios.patch(`/api/payroll/${id}/pay`, {}, getAuthHeader());
+    const response = await api.patch(`/api/payroll/${id}/pay`, {}, getAuthHeader());
     return response.data;
   } catch (error) {
     const message = error.response?.data?.message || error.message;
@@ -52,7 +52,7 @@ export const markPaid = createAsyncThunk('hrms/markPaid', async (id, thunkAPI) =
 // Attendance Thunks
 export const checkIn = createAsyncThunk('hrms/checkIn', async (_, thunkAPI) => {
   try {
-    const response = await axios.post('/api/attendance/check-in', {}, getAuthHeader());
+    const response = await api.post('/api/attendance/check-in', {}, getAuthHeader());
     return response.data;
   } catch (error) {
     const message = error.response?.data?.message || error.message;
@@ -62,7 +62,7 @@ export const checkIn = createAsyncThunk('hrms/checkIn', async (_, thunkAPI) => {
 
 export const checkOut = createAsyncThunk('hrms/checkOut', async (_, thunkAPI) => {
   try {
-    const response = await axios.post('/api/attendance/check-out', {}, getAuthHeader());
+    const response = await api.post('/api/attendance/check-out', {}, getAuthHeader());
     return response.data;
   } catch (error) {
     const message = error.response?.data?.message || error.message;
@@ -72,7 +72,7 @@ export const checkOut = createAsyncThunk('hrms/checkOut', async (_, thunkAPI) =>
 
 export const fetchMyAttendance = createAsyncThunk('hrms/fetchMyAttendance', async (_, thunkAPI) => {
   try {
-    const response = await axios.get('/api/hr/attendance/my/monthly', getAuthHeader());
+    const response = await api.get('/api/hr/attendance/my/monthly', getAuthHeader());
     return response.data;
   } catch (error) {
     const message = error.response?.data?.message || error.message;
@@ -115,3 +115,4 @@ export const hrmsSlice = createSlice({
 
 export const { reset } = hrmsSlice.actions;
 export default hrmsSlice.reducer;
+

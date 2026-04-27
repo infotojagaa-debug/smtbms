@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import api from '../../utils/api';
 
 const API_URL = '/api/hr';
 
@@ -11,7 +11,7 @@ const getAuthHeader = () => {
 // Employees
 export const fetchEmployees = createAsyncThunk('hr/fetchEmployees', async (params, thunkAPI) => {
   try {
-    const response = await axios.get(`${API_URL}/employees`, { 
+    const response = await api.get(`${API_URL}/employees`, { 
       ...getAuthHeader(),
       params 
     });
@@ -23,7 +23,7 @@ export const fetchEmployees = createAsyncThunk('hr/fetchEmployees', async (param
 
 export const createEmployee = createAsyncThunk('hr/createEmployee', async (data, thunkAPI) => {
   try {
-    const response = await axios.post(`${API_URL}/employees`, data, getAuthHeader());
+    const response = await api.post(`${API_URL}/employees`, data, getAuthHeader());
     return response.data;
   } catch (err) {
     return thunkAPI.rejectWithValue(err.response.data.message);
@@ -33,7 +33,7 @@ export const createEmployee = createAsyncThunk('hr/createEmployee', async (data,
 // Attendance
 export const markCheckIn = createAsyncThunk('hr/checkIn', async (_, thunkAPI) => {
   try {
-    const response = await axios.post(`${API_URL}/attendance/checkin`, {}, getAuthHeader());
+    const response = await api.post(`${API_URL}/attendance/checkin`, {}, getAuthHeader());
     return response.data;
   } catch (err) {
     return thunkAPI.rejectWithValue(err.response.data.message);
@@ -42,7 +42,7 @@ export const markCheckIn = createAsyncThunk('hr/checkIn', async (_, thunkAPI) =>
 
 export const markCheckOut = createAsyncThunk('hr/checkOut', async (_, thunkAPI) => {
   try {
-    const response = await axios.post(`${API_URL}/attendance/checkout`, {}, getAuthHeader());
+    const response = await api.post(`${API_URL}/attendance/checkout`, {}, getAuthHeader());
     return response.data;
   } catch (err) {
     return thunkAPI.rejectWithValue(err.response.data.message);
@@ -52,7 +52,7 @@ export const markCheckOut = createAsyncThunk('hr/checkOut', async (_, thunkAPI) 
 // Leaves
 export const fetchLeaves = createAsyncThunk('hr/fetchLeaves', async (_, thunkAPI) => {
   try {
-    const response = await axios.get(`${API_URL}/leaves?my=true`, getAuthHeader());
+    const response = await api.get(`${API_URL}/leaves?my=true`, getAuthHeader());
     return response.data;
   } catch (err) {
     return thunkAPI.rejectWithValue(err.response.data.message);
@@ -61,7 +61,7 @@ export const fetchLeaves = createAsyncThunk('hr/fetchLeaves', async (_, thunkAPI
 
 export const applyLeave = createAsyncThunk('hr/applyLeave', async (data, thunkAPI) => {
   try {
-    const response = await axios.post(`${API_URL}/leaves`, data, getAuthHeader());
+    const response = await api.post(`${API_URL}/leaves`, data, getAuthHeader());
     return response.data;
   } catch (err) {
     return thunkAPI.rejectWithValue(err.response.data.message);
@@ -74,7 +74,7 @@ export const fetchMyBalance = createAsyncThunk('hr/fetchMyBalance', async (_, th
     const user = JSON.parse(sessionStorage.getItem('user'));
     // Since we don't have the employeeId directly in user object always, 
     // the backend /api/hr/leaves/balance/my should handle it via token.
-    const response = await axios.get(`${API_URL}/leaves/balance/my`, getAuthHeader());
+    const response = await api.get(`${API_URL}/leaves/balance/my`, getAuthHeader());
     return response.data;
   } catch (err) {
     return thunkAPI.rejectWithValue(err.response.data.message);
@@ -84,7 +84,7 @@ export const fetchMyBalance = createAsyncThunk('hr/fetchMyBalance', async (_, th
 // Payroll
 export const generatePayroll = createAsyncThunk('hr/generatePayroll', async (data, thunkAPI) => {
   try {
-    const response = await axios.post(`${API_URL}/payroll/generate`, data, getAuthHeader());
+    const response = await api.post(`${API_URL}/payroll/generate`, data, getAuthHeader());
     return response.data;
   } catch (err) {
     return thunkAPI.rejectWithValue(err.response.data.message);
@@ -141,3 +141,4 @@ export const hrSlice = createSlice({
 
 export const { resethr } = hrSlice.actions;
 export default hrSlice.reducer;
+
