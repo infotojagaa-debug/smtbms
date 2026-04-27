@@ -57,24 +57,24 @@ const FinancialReports = () => {
 
   return (
     <div className="space-y-12 pb-20 pt-4">
-      <div className="flex justify-between items-end bg-slate-900 p-12 rounded-[4rem] text-white shadow-2xl relative overflow-hidden">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-end bg-slate-900 p-6 lg:p-12 rounded-[2rem] lg:rounded-[4rem] text-white shadow-2xl relative overflow-hidden gap-6">
          <div className="absolute top-0 right-0 w-96 h-96 bg-primary-600 opacity-20 blur-[100px]"></div>
          <div className="relative z-10 space-y-4">
-            <h2 className="text-4xl font-black tracking-tighter uppercase italic leading-none">Money Dashboard</h2>
-            <p className="text-white/50 font-medium tracking-tight">See your total sales income, expenses, and profits in one clear view.</p>
+            <h2 className="text-3xl lg:text-4xl font-black tracking-tighter uppercase italic leading-none">Money Dashboard</h2>
+            <p className="text-sm lg:text-base text-white/50 font-medium tracking-tight mt-2">See your total sales income, expenses, and profits in one clear view.</p>
          </div>
-         <div className="relative z-10 flex gap-4">
-            <button onClick={exportExcel} className="p-5 bg-white/10 border border-white/20 rounded-3xl hover:bg-white/20 transition-all backdrop-blur-md">
+         <div className="relative z-10 flex flex-col sm:flex-row w-full md:w-auto gap-4">
+            <button onClick={exportExcel} className="flex justify-center p-4 lg:p-5 w-full sm:w-auto bg-white/10 border border-white/20 rounded-2xl lg:rounded-3xl hover:bg-white/20 transition-all backdrop-blur-md">
                <Download size={22} className="text-primary-400" />
             </button>
-            <button className="flex items-center gap-3 px-8 py-5 bg-primary-600 text-white font-black uppercase tracking-widest text-[10px] rounded-3xl shadow-2xl hover:bg-primary-700 transition-all active:scale-95">
+            <button className="flex justify-center items-center gap-3 px-8 py-4 lg:py-5 w-full sm:w-auto bg-primary-600 text-white font-black uppercase tracking-widest text-[10px] rounded-2xl lg:rounded-3xl shadow-2xl hover:bg-primary-700 transition-all active:scale-95">
                <FileText size={18} /> Export Full Audit (PDF)
             </button>
          </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-         <div className="bg-white p-10 rounded-[3.5rem] border border-slate-100 shadow-xl space-y-4 group hover:-translate-y-2 transition-all">
+         <div className="bg-white p-6 lg:p-10 rounded-[2rem] lg:rounded-[3.5rem] border border-slate-100 shadow-xl space-y-4 group hover:-translate-y-2 transition-all">
             <div className="flex justify-between items-start">
                <div className="p-4 bg-emerald-50 text-emerald-600 rounded-2xl"><TrendingUp size={24} /></div>
                <span className="text-[10px] font-black text-emerald-500 uppercase tracking-widest italic">+12.5% Growth</span>
@@ -84,7 +84,7 @@ const FinancialReports = () => {
                <h3 className="text-4xl font-black italic tracking-tighter text-slate-900">₹{(data.totalRevenue || 0).toLocaleString()}</h3>
             </div>
          </div>
-         <div className="bg-white p-10 rounded-[3.5rem] border border-slate-100 shadow-xl space-y-4 group hover:-translate-y-2 transition-all text-slate-900">
+         <div className="bg-white p-6 lg:p-10 rounded-[2rem] lg:rounded-[3.5rem] border border-slate-100 shadow-xl space-y-4 group hover:-translate-y-2 transition-all text-slate-900">
             <div className="flex justify-between items-start">
                <div className="p-4 bg-red-50 text-red-600 rounded-2xl"><TrendingDown size={24} /></div>
                <span className="text-[10px] font-black text-red-500 uppercase tracking-widest italic">-4.2% Control</span>
@@ -94,7 +94,7 @@ const FinancialReports = () => {
                <h3 className="text-4xl font-black italic tracking-tighter">₹{(data.totalExpenses || 0).toLocaleString()}</h3>
             </div>
          </div>
-         <div className="bg-slate-900 p-10 rounded-[3.5rem] shadow-2xl text-white space-y-4 group hover:-translate-y-2 transition-all relative overflow-hidden">
+         <div className="bg-slate-900 p-6 lg:p-10 rounded-[2rem] lg:rounded-[3.5rem] shadow-2xl text-white space-y-4 group hover:-translate-y-2 transition-all relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/20 blur-3xl"></div>
             <div className="flex justify-between items-start relative z-10">
                <div className="p-4 bg-white/5 text-emerald-400 rounded-2xl border border-white/10"><IndianRupee size={24} /></div>
@@ -108,7 +108,7 @@ const FinancialReports = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-         <div className="bg-white p-12 rounded-[4rem] border border-slate-100 shadow-xl space-y-10">
+         <div className="bg-white p-6 lg:p-12 rounded-[2rem] lg:rounded-[4rem] border border-slate-100 shadow-xl space-y-6 lg:space-y-10">
             <h4 className="text-[11px] font-black uppercase tracking-[0.3em] flex items-center gap-2 italic text-slate-900">
                <PieChartIcon size={18} className="text-primary-600" /> Categorical Spending Distribution
             </h4>
@@ -137,7 +137,7 @@ const FinancialReports = () => {
             </div>
          </div>
 
-         <div className="bg-white p-12 rounded-[4rem] border border-slate-100 shadow-xl space-y-10">
+         <div className="bg-white p-6 lg:p-12 rounded-[2rem] lg:rounded-[4rem] border border-slate-100 shadow-xl space-y-6 lg:space-y-10">
             <h4 className="text-[11px] font-black uppercase tracking-[0.3em] flex items-center gap-2 italic text-slate-900">
                <BarChartIcon size={18} className="text-primary-600" /> Departmental Fiscal Utilization
             </h4>
@@ -155,8 +155,8 @@ const FinancialReports = () => {
          </div>
       </div>
       
-      <div className="bg-white p-12 rounded-[4rem] border border-slate-100 shadow-xl space-y-10">
-         <div className="flex justify-between items-center">
+      <div className="bg-white p-6 lg:p-12 rounded-[2rem] lg:rounded-[4rem] border border-slate-100 shadow-xl space-y-6 lg:space-y-10">
+         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <h4 className="text-[11px] font-black uppercase tracking-[0.3em] flex items-center gap-2 italic text-slate-900">
                <Users size={18} className="text-primary-600" /> Strategic Partner Exposure
             </h4>

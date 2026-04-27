@@ -60,19 +60,19 @@ const LeadList = () => {
 
   return (
     <div className="space-y-10 pb-20">
-      <div className="flex justify-between items-center text-slate-900">
-        <div>
-          <h2 className="text-3xl font-black tracking-tight uppercase italic leading-none text-slate-900">New Business Inquiries</h2>
-          <p className="text-slate-500 font-medium tracking-tight">Track all your new customer inquiries and business leads from start to finish.</p>
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-slate-900">
+        <div className="w-full md:w-auto">
+          <h2 className="text-2xl lg:text-3xl font-black tracking-tight uppercase italic leading-none text-slate-900">New Business Inquiries</h2>
+          <p className="text-sm lg:text-base text-slate-500 font-medium tracking-tight mt-1">Track all your new customer inquiries and business leads from start to finish.</p>
         </div>
-        <div className="flex gap-4">
-           <div className="flex bg-slate-100 p-1.5 rounded-2xl border border-slate-200">
-              <button onClick={() => setViewMode('list')} className={`p-2.5 rounded-xl transition-all ${viewMode === 'list' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-400'}`}><ListIcon size={18} /></button>
-              <button onClick={() => setViewMode('pipeline')} className={`p-2.5 rounded-xl transition-all ${viewMode === 'pipeline' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-400'}`}><Layout size={18} /></button>
+        <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
+           <div className="flex bg-slate-100 p-1.5 rounded-2xl border border-slate-200 justify-center">
+              <button onClick={() => setViewMode('list')} className={`p-2.5 rounded-xl transition-all flex-1 md:flex-none flex justify-center ${viewMode === 'list' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-400'}`}><ListIcon size={18} /></button>
+              <button onClick={() => setViewMode('pipeline')} className={`p-2.5 rounded-xl transition-all flex-1 md:flex-none flex justify-center ${viewMode === 'pipeline' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-400'}`}><Layout size={18} /></button>
            </div>
             <button 
               onClick={() => navigate('add')}
-              className="flex items-center gap-2 px-8 py-3 bg-slate-900 text-white font-black uppercase tracking-widest text-[10px] rounded-3xl shadow-2xl hover:bg-slate-800 transition-all active:scale-95"
+              className="flex items-center justify-center gap-2 w-full md:w-auto px-8 py-3 bg-slate-900 text-white font-black uppercase tracking-widest text-[10px] rounded-[1.5rem] shadow-2xl hover:bg-slate-800 transition-all active:scale-95"
             >
               <Plus size={18} /> Add New Inquiry
             </button>

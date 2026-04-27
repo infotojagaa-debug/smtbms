@@ -42,35 +42,35 @@ const CustomerList = () => {
 
   return (
     <div className="space-y-10 pb-10">
-      <div className="flex justify-between items-center text-slate-900">
-        <div>
-          <h2 className="text-3xl font-black tracking-tight uppercase italic leading-none text-slate-900">Our Customer List</h2>
-          <p className="text-slate-500 font-medium tracking-tight">View and manage all your clients and their business profiles.</p>
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-slate-900">
+        <div className="w-full md:w-auto">
+          <h2 className="text-2xl lg:text-3xl font-black tracking-tight uppercase italic leading-none text-slate-900">Our Customer List</h2>
+          <p className="text-sm lg:text-base text-slate-500 font-medium tracking-tight mt-1">View and manage all your clients and their business profiles.</p>
         </div>
-        <div className="flex gap-4">
-           <button className="flex items-center gap-2 px-6 py-3 bg-white border border-slate-200 text-slate-900 font-black uppercase tracking-widest text-[10px] rounded-2xl shadow-sm hover:bg-slate-50 transition-all">
+        <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
+           <button className="flex items-center justify-center gap-2 w-full md:w-auto px-6 py-3 bg-white border border-slate-200 text-slate-900 font-black uppercase tracking-widest text-[10px] rounded-2xl shadow-sm hover:bg-slate-50 transition-all">
              <FileUp size={18} /> Import Data
            </button>
            <button 
             onClick={() => navigate('add')}
-            className="flex items-center gap-2 px-8 py-3 bg-slate-900 text-white font-black uppercase tracking-widest text-[10px] rounded-3xl shadow-2xl hover:bg-slate-800 transition-all active:scale-95"
+            className="flex items-center justify-center gap-2 w-full md:w-auto px-8 py-3 bg-slate-900 text-white font-black uppercase tracking-widest text-[10px] rounded-[1.5rem] shadow-2xl hover:bg-slate-800 transition-all active:scale-95"
            >
              <Plus size={18} /> Add New Customer
            </button>
         </div>
       </div>
 
-      <div className="bg-white rounded-[3.5rem] border border-slate-100 shadow-xl overflow-hidden flex flex-col min-h-[600px]">
-         <div className="px-10 py-8 border-b border-slate-50 flex justify-between items-center flex-wrap gap-6 bg-slate-50/30">
-            <div className="flex items-center gap-6">
-               <div className="flex items-center bg-white px-5 py-3 rounded-2xl border-2 border-slate-300 shadow-sm w-80 focus-within:border-primary-500 focus-within:ring-4 focus-within:ring-primary-500/10 transition-all">
-                  <Search size={16} className="text-slate-400" />
+      <div className="bg-white rounded-[2rem] lg:rounded-[3.5rem] border border-slate-100 shadow-xl overflow-hidden flex flex-col min-h-[600px]">
+         <div className="px-5 py-6 lg:px-10 lg:py-8 border-b border-slate-50 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 bg-slate-50/30">
+            <div className="flex items-center gap-4 w-full md:w-auto">
+               <div className="flex items-center bg-white px-5 py-3 rounded-2xl border-2 border-slate-300 shadow-sm w-full md:w-80 focus-within:border-primary-500 focus-within:ring-4 focus-within:ring-primary-500/10 transition-all">
+                  <Search size={16} className="text-slate-400 shrink-0" />
                   <input type="text" placeholder="Search by name, email or company..." className="bg-transparent border-none outline-none ml-4 text-[10px] font-black uppercase tracking-widest w-full text-slate-900" />
                </div>
-               <button className="p-4 bg-white border border-slate-100 rounded-2xl text-slate-400 shadow-sm hover:text-slate-900 transition-all"><Filter size={18} /></button>
+               <button className="p-4 bg-white border border-slate-100 rounded-2xl text-slate-400 shadow-sm hover:text-slate-900 transition-all shrink-0"><Filter size={18} /></button>
             </div>
             
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end">
                <div className="flex bg-slate-100 p-1.5 rounded-2xl border border-slate-200">
                   <button onClick={() => setViewMode('list')} className={`p-2.5 rounded-xl transition-all ${viewMode === 'list' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-400'}`}><List size={18} /></button>
                   <button onClick={() => setViewMode('grid')} className={`p-2.5 rounded-xl transition-all ${viewMode === 'grid' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-400'}`}><Grid size={18} /></button>
