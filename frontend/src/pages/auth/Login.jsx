@@ -3,14 +3,22 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login, reset } from '../../redux/slices/authSlice';
 import { Mail, Lock, Loader2, Package, ShieldCheck, Eye, EyeOff } from 'lucide-react';
 import toast from 'react-hot-toast';
+import MobileLogin from './MobileLogin';
 
 const Login = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   
   const dispatch = useDispatch();
   const { isLoading, isError, message } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     if (isError && message) {
@@ -26,6 +34,10 @@ const Login = () => {
     }
     dispatch(login({ email, password }));
   };
+
+  if (isMobile) {
+    return <MobileLogin />;
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-900 overflow-hidden relative selection:bg-blue-500/30">
