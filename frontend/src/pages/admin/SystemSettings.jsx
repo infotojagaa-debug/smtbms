@@ -15,7 +15,7 @@ import {
   Trash2,
   Plus
 } from 'lucide-react';
-import axios from 'axios';
+import api from '../../utils/api';
 import toast from 'react-hot-toast';
 
 const SystemSettings = () => {
@@ -27,7 +27,7 @@ const SystemSettings = () => {
     setLoading(true);
     try {
       const user = JSON.parse(sessionStorage.getItem('user'));
-      const res = await axios.get('/api/settings', {
+      const res = await api.get('/api/settings', {
         headers: { Authorization: `Bearer ${user.token}` }
       });
       setSettings(res.data);
@@ -44,7 +44,7 @@ const SystemSettings = () => {
     e.preventDefault();
     try {
       const user = JSON.parse(sessionStorage.getItem('user'));
-      await axios.put('/api/settings', settings, {
+      await api.put('/api/settings', settings, {
         headers: { Authorization: `Bearer ${user.token}` }
       });
       toast.success('System Directives Updated.');
@@ -57,7 +57,7 @@ const SystemSettings = () => {
   const handleTestEmail = async () => {
     try {
       const user = JSON.parse(sessionStorage.getItem('user'));
-      await axios.post('/api/settings/test-email', settings.emailSettings, {
+      await api.post('/api/settings/test-email', settings.emailSettings, {
         headers: { Authorization: `Bearer ${user.token}` }
       });
       toast.success('SMTP Connectivity Verified.');

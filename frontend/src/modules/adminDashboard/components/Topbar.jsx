@@ -57,7 +57,10 @@ const Topbar = ({ toggleSidebar }) => {
            <button className="p-2.5 text-slate-400 hover:text-slate-700 transition-colors rounded-full hover:bg-slate-50 border border-slate-100 font-mono text-xs font-bold w-[38px] h-[38px] flex items-center justify-center tracking-tighter">
              {'>_'}
            </button>
-           <button className="p-2.5 text-slate-400 hover:text-slate-700 transition-colors rounded-full hover:bg-slate-50 border border-slate-100">
+           <button 
+             onClick={() => navigate('/admin/dashboard/settings')}
+             className="p-2.5 text-slate-400 hover:text-slate-700 transition-colors rounded-full hover:bg-slate-50 border border-slate-100"
+           >
              <Settings size={18} />
            </button>
         </div>
