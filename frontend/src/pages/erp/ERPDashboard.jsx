@@ -99,7 +99,7 @@ const ERPDashboard = () => {
   return (
     <div className="min-h-full">
       {/* Hero Header */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900 p-10 mb-10 shadow-2xl">
+      <div className="relative overflow-hidden rounded-[2rem] lg:rounded-3xl bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900 p-6 lg:p-10 mb-6 lg:mb-10 shadow-2xl">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500 rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500 rounded-full blur-3xl" />
@@ -112,7 +112,7 @@ const ERPDashboard = () => {
               </div>
               <span className="text-xs font-black uppercase tracking-widest text-indigo-300">ERP Console</span>
             </div>
-            <h2 className="text-4xl font-black text-white tracking-tight leading-none">
+            <h2 className="text-3xl lg:text-4xl font-black text-white tracking-tight leading-none">
               Fiscal Intelligence Hub
             </h2>
             <p className="text-indigo-300/80 font-medium mt-3 text-sm">
@@ -134,7 +134,7 @@ const ERPDashboard = () => {
         {stats.map((stat, idx) => (
           <div key={idx} onClick={() => navigate('/admin/dashboard/erp/finance')} className="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group cursor-pointer">
             <div className={`h-1.5 w-full bg-gradient-to-r ${stat.bg}`} />
-            <div className="p-7">
+            <div className="p-5 lg:p-7">
               <div className="flex justify-between items-start mb-5">
                 <div className={`p-3 rounded-2xl ${stat.light} group-hover:scale-110 transition-transform`}>
                   <stat.icon size={22} />
@@ -154,7 +154,7 @@ const ERPDashboard = () => {
       {/* Charts Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
         {/* Revenue vs Expense Line Chart */}
-        <div className="lg:col-span-2 bg-white rounded-3xl border border-slate-100 shadow-sm p-8">
+        <div className="lg:col-span-2 bg-white rounded-[2rem] lg:rounded-3xl border border-slate-100 shadow-sm p-5 lg:p-8">
           <div className="flex justify-between items-center mb-8">
             <div>
               <h4 className="font-black text-slate-900 text-sm">Revenue vs Expense Trend</h4>
@@ -180,7 +180,7 @@ const ERPDashboard = () => {
         </div>
 
         {/* Critical Alerts */}
-        <div className="bg-gradient-to-br from-slate-900 to-indigo-950 rounded-3xl p-8 text-white shadow-2xl relative overflow-hidden">
+        <div className="bg-gradient-to-br from-slate-900 to-indigo-950 rounded-[2rem] lg:rounded-3xl p-5 lg:p-8 text-white shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-48 h-48 bg-indigo-600/20 rounded-full blur-3xl" />
           <h4 className="text-xs font-black uppercase tracking-widest text-indigo-400 mb-6 relative z-10">Critical Alerts</h4>
           <div className="space-y-4 relative z-10">
@@ -222,7 +222,7 @@ const ERPDashboard = () => {
       </div>
 
       {/* Department Budget Utilization */}
-      <div className="bg-white rounded-3xl border border-slate-100 shadow-sm p-8">
+      <div className="bg-white rounded-[2rem] lg:rounded-3xl border border-slate-100 shadow-sm p-5 lg:p-8">
         <h4 className="font-black text-slate-900 text-sm mb-6">Department Budget Utilization</h4>
         <div className="h-60">
           <ResponsiveContainer width="100%" height="100%">

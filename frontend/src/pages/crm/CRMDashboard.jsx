@@ -55,9 +55,9 @@ const CRMDashboard = () => {
 
   return (
     <div className="space-y-10 pb-20">
-      <div className="flex justify-between items-center text-slate-900">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-slate-900">
         <div>
-          <h2 className="text-3xl font-black tracking-tight uppercase italic leading-none">Strategic Intelligence Hub</h2>
+          <h2 className="text-2xl lg:text-3xl font-black tracking-tight uppercase italic leading-none">Strategic Intelligence Hub</h2>
           <p className="text-slate-500 font-medium tracking-tight">Consolidated auditing of relationship lifecycle, pipeline velocity, and support satisfaction metrics.</p>
         </div>
         <div className="flex gap-4">
@@ -86,8 +86,8 @@ const CRMDashboard = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-        <div className="lg:col-span-2 space-y-10">
-           <div className="bg-white p-10 rounded-[3.5rem] border border-slate-100 shadow-xl space-y-10">
+        <div className="lg:col-span-2 space-y-6 lg:space-y-10">
+           <div className="bg-white p-5 lg:p-10 rounded-[2rem] lg:rounded-[3.5rem] border border-slate-100 shadow-xl space-y-6 lg:space-y-10">
               <div className="flex justify-between items-center">
                  <h4 className="text-[11px] font-black uppercase tracking-[0.3em] flex items-center gap-2 italic text-slate-900">
                     <TrendingUp size={18} className="text-primary-600" /> Conversion Velocity Trends
@@ -116,8 +116,8 @@ const CRMDashboard = () => {
               </div>
            </div>
 
-           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              <div className="bg-white p-10 rounded-[3.5rem] border border-slate-100 shadow-xl space-y-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10">
+              <div className="bg-white p-5 lg:p-10 rounded-[2rem] lg:rounded-[3.5rem] border border-slate-100 shadow-xl space-y-6 lg:space-y-8">
                  <h4 className="text-[11px] font-black uppercase tracking-[0.3em] italic">Pipeline Funnel Distribution</h4>
                  <div className="space-y-6">
                     {funnelData.slice(0, 5).map((stage, idx) => (
@@ -134,7 +134,7 @@ const CRMDashboard = () => {
                  </div>
               </div>
 
-              <div className="bg-slate-900 p-10 rounded-[3.5rem] shadow-2xl space-y-8 relative overflow-hidden">
+              <div className="bg-slate-900 p-5 lg:p-10 rounded-[2rem] lg:rounded-[3.5rem] shadow-2xl space-y-6 lg:space-y-8 relative overflow-hidden">
                  <div className="absolute top-0 right-0 w-32 h-32 bg-primary-600 opacity-20 blur-3xl"></div>
                  <h4 className="text-[11px] font-black uppercase tracking-[0.3em] italic text-white/50">Leaderboard Protocol</h4>
                  <div className="space-y-6 relative z-10">
@@ -155,8 +155,8 @@ const CRMDashboard = () => {
            </div>
         </div>
 
-        <div className="space-y-10">
-          <div className="bg-white p-10 rounded-[3.5rem] border border-slate-100 shadow-xl space-y-8 h-full">
+        <div className="space-y-6 lg:space-y-10">
+          <div className="bg-white p-5 lg:p-10 rounded-[2rem] lg:rounded-[3.5rem] border border-slate-100 shadow-xl space-y-6 lg:space-y-8 h-full">
              <div className="flex justify-between items-center">
                 <h4 className="text-[11px] font-black uppercase tracking-[0.3em] flex items-center gap-2 italic text-slate-900">
                    <Calendar size={18} className="text-primary-600" /> Temporal Tasks
