@@ -101,11 +101,11 @@ const AddEditCustomer = () => {
                   <div className="space-y-8 animate-in slide-in-from-right-10 duration-500">
                      <div className="space-y-4">
                         <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-2">Basic Details</label>
-                        <div className="grid grid-cols-2 gap-6">
+                        <div grid-cols-1 sm:grid-cols-2>
                            <input name="name" placeholder="Full Name" className="p-6 bg-white border-2 border-slate-200 rounded-3xl text-xs font-black uppercase italic tracking-widest outline-none focus:ring-4 focus:ring-primary-600/10 focus:border-primary-600 transition-all shadow-sm" onChange={handleChange} value={formData.name} />
                            <input name="email" placeholder="Email Address" className="p-6 bg-white border-2 border-slate-200 rounded-3xl text-xs font-black uppercase italic tracking-widest outline-none focus:ring-4 focus:ring-primary-600/10 focus:border-primary-600 transition-all shadow-sm" onChange={handleChange} value={formData.email} />
                         </div>
-                        <div className="grid grid-cols-2 gap-6">
+                        <div grid-cols-1 sm:grid-cols-2>
                            <input name="phone" placeholder="Mobile Number" className="p-6 bg-white border-2 border-slate-200 rounded-3xl text-xs font-black uppercase italic tracking-widest outline-none focus:ring-4 focus:ring-primary-600/10 focus:border-primary-600 transition-all shadow-sm" onChange={handleChange} value={formData.phone} />
                            <input name="company" placeholder="Company Name" className="p-6 bg-white border-2 border-slate-200 rounded-3xl text-xs font-black uppercase italic tracking-widest outline-none focus:ring-4 focus:ring-primary-600/10 focus:border-primary-600 transition-all shadow-sm" onChange={handleChange} value={formData.company} />
                         </div>
@@ -117,7 +117,7 @@ const AddEditCustomer = () => {
                   <div className="space-y-8 animate-in slide-in-from-right-10 duration-500">
                      <div className="space-y-4">
                         <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-2">Category & Source</label>
-                        <div className="grid grid-cols-2 gap-6">
+                        <div grid-cols-1 sm:grid-cols-2>
                            <select name="industry" className="p-6 bg-white border-2 border-slate-200 rounded-3xl text-xs font-black uppercase italic tracking-widest outline-none appearance-none cursor-pointer focus:ring-4 focus:ring-primary-600/10 focus:border-primary-600 shadow-sm" onChange={handleChange} value={formData.industry}>
                               {['IT', 'manufacturing', 'retail', 'healthcare', 'education', 'other'].map(i => <option key={i} value={i}>{i} SECTOR</option>)}
                            </select>
@@ -125,7 +125,7 @@ const AddEditCustomer = () => {
                               {['individual', 'corporate', 'government'].map(t => <option key={t} value={t}>{t} TYPE</option>)}
                            </select>
                         </div>
-                        <div className="grid grid-cols-2 gap-6">
+                        <div grid-cols-1 sm:grid-cols-2>
                            <select name="source" className="p-6 bg-white border-2 border-slate-200 rounded-3xl text-xs font-black uppercase italic tracking-widest outline-none appearance-none cursor-pointer focus:ring-4 focus:ring-primary-600/10 focus:border-primary-600 shadow-sm" onChange={handleChange} value={formData.source}>
                               {['website', 'referral', 'cold-call', 'social-media', 'exhibition', 'email-campaign', 'other'].map(s => <option key={s} value={s}>{s} SOURCE</option>)}
                            </select>
@@ -140,11 +140,11 @@ const AddEditCustomer = () => {
                      <div className="space-y-4">
                         <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-2">Address Details</label>
                         <input name="address.street" placeholder="Street Address" className="w-full p-6 bg-white border-2 border-slate-200 rounded-3xl text-xs font-black uppercase italic tracking-widest outline-none focus:ring-4 focus:ring-primary-600/10 focus:border-primary-600 shadow-sm" onChange={handleChange} value={formData.address.street} />
-                        <div className="grid grid-cols-2 gap-6">
+                        <div grid-cols-1 sm:grid-cols-2>
                            <input name="address.city" placeholder="City" className="p-6 bg-white border-2 border-slate-200 rounded-3xl text-xs font-black uppercase italic tracking-widest outline-none focus:ring-4 focus:ring-primary-600/10 focus:border-primary-600 transition-all shadow-sm" onChange={handleChange} value={formData.address.city} />
                            <input name="address.state" placeholder="State" className="p-6 bg-white border-2 border-slate-200 rounded-3xl text-xs font-black uppercase italic tracking-widest outline-none focus:ring-4 focus:ring-primary-600/10 focus:border-primary-600 transition-all shadow-sm" onChange={handleChange} value={formData.address.state} />
                         </div>
-                        <div className="grid grid-cols-2 gap-6">
+                        <div grid-cols-1 sm:grid-cols-2>
                            <input name="address.country" placeholder="Country" className="p-6 bg-white border-2 border-slate-200 rounded-3xl text-xs font-black uppercase italic tracking-widest outline-none focus:ring-4 focus:ring-primary-600/10 focus:border-primary-600 transition-all shadow-sm" onChange={handleChange} value={formData.address.country} />
                            <input name="address.pincode" placeholder="Pincode" className="p-6 bg-white border-2 border-slate-200 rounded-3xl text-xs font-black uppercase italic tracking-widest outline-none focus:ring-4 focus:ring-primary-600/10 focus:border-primary-600 transition-all shadow-sm" onChange={handleChange} value={formData.address.pincode} />
                         </div>

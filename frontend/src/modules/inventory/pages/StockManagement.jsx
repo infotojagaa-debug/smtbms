@@ -49,7 +49,7 @@ const StockManagement = () => {
             </div>
           )}
 
-          <div className="grid grid-cols-2 gap-4">
+          <div grid-cols-1 sm:grid-cols-2>
             <button
               type="button"
               onClick={() => setFormData({...formData, type: 'IN'})}

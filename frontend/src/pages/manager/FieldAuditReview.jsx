@@ -205,7 +205,7 @@ const FieldAuditReview = () => {
                       <div>
                          <h4 className="flex items-center gap-2 font-black text-slate-800 text-lg mb-6"><Camera size={24} className="text-indigo-500 drop-shadow-sm" /> Site Evidence</h4>
                          {selectedAudit.evidence?.length > 0 ? (
-                           <div className="grid grid-cols-2 gap-4">
+                           <div grid-cols-1 sm:grid-cols-2>
                               {selectedAudit.evidence.map((ev, i) => (
                                 <div key={i} className="group relative rounded-2xl overflow-hidden bg-slate-100 aspect-square shadow-md border border-slate-200">
                                    <img src={ev.url} alt="Evidence" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />

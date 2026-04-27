@@ -94,7 +94,7 @@ const SalarySlip = () => {
             </div>
          </div>
 
-         <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100">
+         <div grid-cols-1 sm:grid-cols-2>
             <div className="space-y-1">
                <p className="text-[9px] font-black uppercase text-slate-400 tracking-widest">Personnel Name</p>
                <p className="font-black text-xs uppercase italic">{payroll.employeeId.name}</p>

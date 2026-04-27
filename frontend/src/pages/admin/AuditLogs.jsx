@@ -162,7 +162,7 @@ const AuditLogs = () => {
                     {expandedRow === i && (
                       <tr>
                         <td colSpan="5" className="px-6 py-6 bg-slate-50 border-b border-t border-slate-200">
-                           <div className="grid grid-cols-2 gap-6">
+                           <div grid-cols-1 sm:grid-cols-2>
                               <div className="space-y-4">
                                  <h5 className="text-xs font-bold text-slate-500 flex items-center gap-2">
                                     <Database size={16} /> Original Artifact State [pre-execution]

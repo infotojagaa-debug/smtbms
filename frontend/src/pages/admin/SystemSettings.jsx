@@ -136,7 +136,7 @@ const SystemSettings = () => {
                     </div>
                     <p className="text-sm font-semibold text-slate-600">Deploy Global Identity (Logo)</p>
                  </div>
-                 <div className="grid grid-cols-2 gap-4">
+                 <div grid-cols-1 sm:grid-cols-2>
                     <div className="space-y-2">
                        <label className="text-sm font-semibold text-slate-700 block">Fiscal Artifact Currency</label>
                        <select className="w-full p-3 bg-white border border-slate-300 rounded-lg outline-none font-medium text-slate-900 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all" value={settings.currency} onChange={(e) => setSettings({...settings, currency: e.target.value})}>
@@ -175,7 +175,7 @@ const SystemSettings = () => {
                     Validate Node
                  </button>
               </div>
-              <div className="grid grid-cols-2 gap-6">
+              <div grid-cols-1 sm:grid-cols-2>
                  <div className="space-y-2">
                     <label className="text-sm font-semibold text-slate-700 block">SMTP Host Registry</label>
                     <input className="w-full p-3 bg-white border border-slate-300 rounded-lg outline-none font-medium text-slate-900 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all" value={settings.emailSettings?.host} onChange={(e) => setSettings({...settings, emailSettings: {...settings.emailSettings, host: e.target.value}})} />

@@ -72,7 +72,7 @@ const MaterialDetail = () => {
                 </div>
               )}
               
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
+              <div grid-cols-1 sm:grid-cols-2>
                  <div>
                     <p className="text-[10px] font-black uppercase text-slate-400 tracking-widest mb-1">Stock Level</p>
                     <h4 className={`text-3xl font-black ${isLowStock ? 'text-red-500' : 'text-slate-900'}`}>{selectedMaterial.quantity} <span className="text-sm text-slate-400">{selectedMaterial.unit}</span></h4>

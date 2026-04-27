@@ -203,7 +203,7 @@ const ManagerRequests = () => {
             {/* Scrollable Body */}
             <div className="overflow-y-auto flex-1 px-8 py-5 space-y-5">
               {/* Internal / External Toggle */}
-              <div className="grid grid-cols-2 gap-3">
+              <div grid-cols-1 sm:grid-cols-2>
                 <button
                   onClick={() => setNewReq({...newReq, requestType: 'internal', customerId: '', clientName: ''})}
                   className={`p-4 rounded-2xl border-2 transition-all text-left ${

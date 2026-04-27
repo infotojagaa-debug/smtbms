@@ -142,7 +142,7 @@ const PerformanceRadar = () => {
                              </div>
                           </div>
 
-                          <div className="grid grid-cols-2 gap-4">
+                          <div grid-cols-1 sm:grid-cols-2>
                              <div className="p-6 bg-slate-900 rounded-[2rem] text-white shadow-xl shadow-slate-900/20">
                                 <p className="text-[10px] font-bold uppercase tracking-[0.4em] opacity-40 mb-2">Aggregate Rating</p>
                                 <div className="flex items-end gap-2">

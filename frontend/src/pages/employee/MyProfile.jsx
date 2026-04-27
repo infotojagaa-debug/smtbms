@@ -209,7 +209,7 @@ const MyProfile = () => {
                       </div>
                    </div>
 
-                   <div className="w-full mt-6 p-5 bg-slate-50/50 rounded-2xl border border-slate-100 grid grid-cols-2 gap-4">
+                   <div grid-cols-1 sm:grid-cols-2>
                       <div className="space-y-0.5 text-left">
                          <p className="text-[8px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">ID</p>
                          <p className="text-[10px] font-black text-slate-900 uppercase truncate">{profile?.employeeId || `USR-${profile?._id?.slice(-5).toUpperCase()}`}</p>
@@ -341,7 +341,7 @@ const MyProfile = () => {
                          <h4 className="text-[11px] font-black text-slate-400 uppercase tracking-[0.5em]">Operational Parameters</h4>
                       </div>
 
-                      <div className="grid grid-cols-2 gap-6">
+                      <div grid-cols-1 sm:grid-cols-2>
                          <div className="p-6 bg-white/40 backdrop-blur-md rounded-3xl border border-white/20 group transition-all duration-500 hover:shadow-xl hover:bg-white/60">
                            <p className="text-[11px] font-black text-slate-400 uppercase tracking-widest mb-2">Designation</p>
                            <p className="text-xl font-black text-slate-900 uppercase italic truncate">{profile?.designation}</p>

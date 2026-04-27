@@ -223,7 +223,7 @@ const AdminDashboard = () => {
               </PieChart>
             </ResponsiveContainer>
           </div>
-          <div className="grid grid-cols-2 gap-4 mt-6 pt-6 border-t border-slate-50">
+          <div grid-cols-1 sm:grid-cols-2>
             {deptPie.map((d, i) => (
               <div key={i} className="flex items-center gap-3">
                 <div className="w-2 h-2 rounded-full" style={{ backgroundColor: COLORS[i] }} />
@@ -304,7 +304,7 @@ const AdminDashboard = () => {
             )}
           </div>
           {/* CRM Quick Stats */}
-          <div className="mt-8 pt-8 border-t border-slate-50 grid grid-cols-2 gap-6">
+          <div grid-cols-1 sm:grid-cols-2>
             <div className="bg-slate-50/50 border-2 border-slate-50 rounded-[2rem] p-6 text-center hover:bg-white transition-all shadow-sm">
               <p className="text-3xl font-black text-slate-900 tracking-tighter uppercase italic">{crm.activeCustomers}</p>
               <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest mt-2">Active Strategic Clients</p>

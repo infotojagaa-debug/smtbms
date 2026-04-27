@@ -385,7 +385,7 @@ const UserManagement = () => {
               </div>
 
               <form onSubmit={handleAction} className="p-8 space-y-6">
-                 <div className="grid grid-cols-2 gap-5">
+                 <div grid-cols-1 sm:grid-cols-2>
                     <div className="space-y-2">
                        <label className="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-1">Identity Tag</label>
                        <input 
@@ -409,7 +409,7 @@ const UserManagement = () => {
                     </div>
                  </div>
 
-                 <div className="grid grid-cols-2 gap-5">
+                 <div grid-cols-1 sm:grid-cols-2>
                     <div className="space-y-2">
                        <label className="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-1">Command Role</label>
                        <select 
@@ -442,7 +442,7 @@ const UserManagement = () => {
                     </div>
                  </div>
 
-                 <div className="grid grid-cols-2 gap-5">
+                 <div grid-cols-1 sm:grid-cols-2>
                     <div className="space-y-2">
                        <label className="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-1">Voice Protocol</label>
                        <input 

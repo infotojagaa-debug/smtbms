@@ -97,7 +97,7 @@ const LeadDetail = () => {
                      <h4 className="text-[11px] font-black uppercase tracking-[0.3em] flex items-center gap-2 italic text-slate-900">
                         <Target size={18} className="text-primary-600" /> Acquisition parameters
                      </h4>
-                     <div className="grid grid-cols-2 lg:grid-cols-3 gap-10">
+                     <div grid-cols-1 sm:grid-cols-2>
                         <div className="space-y-2">
                            <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Projected Yield</p>
                            <p className="text-2xl font-black italic text-slate-900">₹{(lead.value || 0).toLocaleString()}</p>

@@ -371,10 +371,10 @@ const PayrollEngine = () => {
                        <button onClick={() => setIsPreviewModalOpen(false)} className="text-slate-300 hover:text-slate-900 font-bold text-2xl">&times;</button>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-8 mb-12">
+                    <div grid-cols-1 sm:grid-cols-2>
                        <div className="space-y-6">
                           <h6 className="text-[9px] font-black uppercase tracking-[0.5em] text-slate-400 mb-2">Attendance Telemetry</h6>
-                          <div className="grid grid-cols-2 gap-4">
+                          <div grid-cols-1 sm:grid-cols-2>
                              <div className="p-4 bg-white rounded-2xl shadow-sm border border-slate-100">
                                 <p className="text-2xl font-black text-slate-900 italic leading-none mb-1">{draftData.presentDays}</p>
                                 <p className="text-[8px] font-bold text-slate-400 uppercase tracking-widest">Active Days</p>
@@ -454,7 +454,7 @@ const PayrollEngine = () => {
                     </div>
                  </div>
 
-                 <div className="grid grid-cols-2 gap-10">
+                 <div grid-cols-1 sm:grid-cols-2>
                     <div className="space-y-4">
                        <h5 className="text-[9px] font-black uppercase tracking-[0.4em] text-slate-400 border-b border-slate-50 pb-3">Accumulated Earnings</h5>
                        <div className="flex justify-between items-center text-xs">

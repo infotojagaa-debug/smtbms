@@ -235,7 +235,7 @@ const EmployeeDashboard = () => {
       </div>
 
       {/* â”€â”€ STAT CARDS â”€â”€ */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-2">
+      <div grid-cols-1 sm:grid-cols-2>
         {statCards.map((m, i) => (
           <div 
             key={i} 
@@ -503,7 +503,7 @@ const EmployeeDashboard = () => {
                 <h2 className="text-lg font-black text-white leading-tight uppercase italic tracking-tighter mb-1">Workforce Intelligence & Sector Comms</h2>
                 <div className="w-12 h-1 bg-indigo-500 rounded-full"></div>
               </div>
-                <div className="grid grid-cols-2 gap-2.5 mb-4">
+                <div grid-cols-1 sm:grid-cols-2>
                 <div className="bg-white/5 rounded-xl p-3 border border-white/5">
                   <p className="text-[8px] font-semibold text-slate-500 uppercase tracking-widest mb-1">Tasks Active</p>
                   <p className="text-xl font-black text-white tabular-nums">12</p>

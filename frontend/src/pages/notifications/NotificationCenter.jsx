@@ -72,10 +72,10 @@ const NotificationCenter = () => {
 
   return (
     <div className="max-w-5xl mx-auto space-y-12 pb-20 px-6 lg:px-0">
-      <div className="flex justify-between items-end text-slate-900 border-b border-slate-100 pb-12">
-        <div className="space-y-4">
-          <h2 className="text-5xl font-black tracking-tighter uppercase italic leading-none">Intelligence Protocol Hub</h2>
-          <p className="text-slate-600 font-black text-xs uppercase tracking-widest pl-4 border-l-4 border-primary-600">Enterprise notification registry with real-time categorical alerting.</p>
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 text-slate-900 border-b border-slate-100 pb-12">
+        <div className="space-y-4 w-full md:w-auto">
+          <h2 className="text-3xl lg:text-5xl font-black tracking-tighter uppercase italic leading-none">Intelligence Protocol Hub</h2>
+          <p className="text-slate-600 font-black text-[10px] lg:text-xs uppercase tracking-widest pl-4 border-l-4 border-primary-600">Enterprise notification registry with real-time categorical alerting.</p>
         </div>
         <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
            <button 
@@ -130,13 +130,13 @@ const NotificationCenter = () => {
 
       <div className="space-y-4">
         {notifications.length > 0 ? notifications.map((notif, idx) => (
-          <div key={idx} className={`bg-white p-6 rounded-3xl border transition-all flex items-center justify-between group hover:shadow-xl relative overflow-hidden ${
+          <div key={idx} className={`bg-white p-5 lg:p-6 rounded-2xl lg:rounded-3xl border transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 group hover:shadow-xl relative overflow-hidden ${
              notif.isRead ? 'border-slate-100 opacity-60' : 'border-slate-200 shadow-md shadow-slate-100'
           } ${notif.priority === 'high' ? 'ring-2 ring-rose-500 ring-opacity-20' : ''}`}>
             {!notif.isRead && <div className={`absolute left-0 top-0 bottom-0 w-1.5 ${notif.priority === 'high' ? 'bg-rose-500' : 'bg-primary-600'}`}></div>}
             
-            <div className="flex items-center gap-6">
-               <div className={`p-4 rounded-2xl ${getTypeStyles(notif.type, notif.priority)} group-hover:scale-110 transition-all shadow-sm`}>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 w-full">
+               <div className={`p-4 rounded-2xl ${getTypeStyles(notif.type, notif.priority)} group-hover:scale-110 transition-all shadow-sm shrink-0`}>
                   {getModuleIcon(notif.type)}
                </div>
                <div className="space-y-2">
@@ -167,7 +167,7 @@ const NotificationCenter = () => {
                </div>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 w-full sm:w-auto justify-end shrink-0">
                 {notif.link && (
                   <Link to={notif.link} className="p-3 bg-slate-50 text-slate-400 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all shadow-sm">
                     <ExternalLink size={16} />

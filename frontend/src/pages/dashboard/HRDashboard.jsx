@@ -162,7 +162,7 @@ const HRDashboard = () => {
       </div>
 
       {/* KPI Row — Restored to Employee Style */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div grid-cols-1 sm:grid-cols-2>
         {kpiCards.map((card, i) => (
           <StatCard key={i} {...card} />
         ))}

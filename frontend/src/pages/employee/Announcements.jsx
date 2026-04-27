@@ -165,7 +165,7 @@ const Announcements = () => {
                     ></textarea>
                  </div>
 
-                 <div className="grid grid-cols-2 gap-8 pt-4">
+                 <div grid-cols-1 sm:grid-cols-2>
                     <div className="space-y-3">
                        <label className="text-[10px] font-black text-indigo-500 uppercase tracking-[0.3em] ml-1">Variant Type</label>
                        <select value={formData.type} onChange={e => setFormData({...formData, type: e.target.value})} className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 text-xs font-black text-slate-800 focus:outline-none focus:border-indigo-500 cursor-pointer shadow-sm">

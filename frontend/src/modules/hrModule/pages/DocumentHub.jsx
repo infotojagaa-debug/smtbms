@@ -218,7 +218,7 @@ const DocumentVault = () => {
                    </p>
                 </div>
                 <div className="w-full h-[1px] bg-slate-50"></div>
-                <div className="grid grid-cols-2 gap-4 w-full">
+                <div grid-cols-1 sm:grid-cols-2>
                    <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100">
                       <Clock size={16} className="text-indigo-500 mb-2" />
                       <p className="text-[8px] font-black text-slate-400 uppercase">Recent Files</p>

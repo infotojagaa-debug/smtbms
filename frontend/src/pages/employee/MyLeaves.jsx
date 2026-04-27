@@ -231,7 +231,7 @@ const MyLeaves = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-6">
+              <div grid-cols-1 sm:grid-cols-2>
                 <div>
                   <label className="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2.5">Start Sequence</label>
                   <input

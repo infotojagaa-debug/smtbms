@@ -72,7 +72,7 @@ const LowStockAlerts = () => {
                         </div>
                      </div>
 
-                     <div className="grid grid-cols-2 gap-4 mb-8">
+                     <div grid-cols-1 sm:grid-cols-2>
                         <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100/50">
                            <p className="text-[10px] font-black uppercase text-slate-400 tracking-widest mb-1">Current</p>
                            <p className={`text-2xl font-black font-mono ${isOutOfStock ? 'text-red-600' : 'text-slate-900'}`}>{material.quantity}</p>

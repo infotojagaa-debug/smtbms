@@ -249,7 +249,7 @@ const PayrollManagement = () => {
               </div>
 
               <div className="space-y-4 mb-8">
-                 <div className="grid grid-cols-2 gap-4">
+                 <div grid-cols-1 sm:grid-cols-2>
                     <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100">
                        <p className="text-[8px] font-black text-slate-400 uppercase mb-1">Present (Verified)</p>
                        <p className="text-lg font-black text-slate-900">{draftData.presentDays} Days</p>
@@ -286,7 +286,7 @@ const PayrollManagement = () => {
                  </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div grid-cols-1 sm:grid-cols-2>
                  <button 
                    onClick={() => setIsModalOpen(false)}
                    className="py-4 bg-slate-50 hover:bg-slate-100 text-slate-400 font-black uppercase text-[10px] tracking-widest rounded-2xl transition-all"
@@ -352,7 +352,7 @@ const PayrollManagement = () => {
                  </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4 pt-4 border-t border-slate-100">
+              <div grid-cols-1 sm:grid-cols-2>
                  <button 
                    onClick={() => setIsConfigModalOpen(false)}
                    className="py-4 text-slate-400 font-black uppercase text-xs tracking-widest hover:text-slate-900 transition-colors"

@@ -174,7 +174,7 @@ const MySalary = () => {
       </motion.div>
 
       {/* Overview Stats - Dark Border Style */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div grid-cols-1 sm:grid-cols-2>
         {[
           { label: 'Base Salary', value: `₹${Math.round(draft?.baseSalary || 0).toLocaleString('en-IN')}`, icon: DollarSign, color: 'primary' },
           { label: 'Paid Leave', value: `${draft?.paidLeaveDays || 0} Days`, icon: Calendar, color: 'indigo' },

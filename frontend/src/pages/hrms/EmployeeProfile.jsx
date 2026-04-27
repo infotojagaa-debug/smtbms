@@ -113,7 +113,7 @@ const EmployeeProfile = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                <div className="bg-white p-10 rounded-[3rem] border border-slate-100 shadow-xl space-y-8">
                   <h4 className="font-black text-slate-900 uppercase tracking-widest text-xs flex items-center gap-2"><Briefcase size={16} /> Compensations</h4>
-                  <div className="grid grid-cols-2 gap-8">
+                  <div grid-cols-1 sm:grid-cols-2>
                      <div className="p-6 bg-blue-50/50 rounded-3xl border border-blue-100">
                         <p className="text-[10px] font-black uppercase text-blue-400 tracking-widest leading-none mb-2">Base Salary</p>
                         <h5 className="text-2xl font-black text-slate-900">${employee.salary.basic.toLocaleString()}</h5>

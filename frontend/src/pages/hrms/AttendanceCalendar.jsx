@@ -136,7 +136,7 @@ const AttendanceCalendar = () => {
            </div>
 
            {/* Metrics Grid */}
-           <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+           <div grid-cols-1 sm:grid-cols-2>
               <div className="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm space-y-2">
                  <p className="text-[10px] font-black uppercase text-slate-400 tracking-widest">Efficiency Rate</p>
                  <h4 className="text-2xl font-black text-slate-900">94%</h4>

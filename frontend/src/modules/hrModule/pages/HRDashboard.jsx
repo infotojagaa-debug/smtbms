@@ -260,7 +260,7 @@ const HRDashboard = () => {
                  <p className="text-3xl font-black text-slate-900 italic">{stats.totalEmployees}</p>
               </div>
            </div>
-           <div className="grid grid-cols-2 gap-4 w-full mt-6">
+           <div grid-cols-1 sm:grid-cols-2>
               {stats.deptData.map((d, i) => (
                 <div key={i} className="flex items-center gap-3 p-3 bg-slate-50 rounded-2xl border border-slate-100">
                    <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: COLORS[i % COLORS.length] }}></div>
@@ -313,7 +313,7 @@ const HRDashboard = () => {
 
         {/* High Intensity Insights */}
         <div className="lg:col-span-12 xl:col-span-5 space-y-6">
-           <div className="grid grid-cols-2 gap-6">
+           <div grid-cols-1 sm:grid-cols-2>
               <div className="p-8 rounded-[2.5rem] bg-slate-900 text-white relative overflow-hidden group shadow-2xl shadow-slate-900/30">
                  <div className="absolute right-[-10%] top-[-10%] p-4 opacity-10 group-hover:scale-125 transition-transform"><TrendingUp size={100} /></div>
                  <p className="text-[9px] font-black uppercase tracking-[0.3em] mb-2 text-indigo-400">Retention Ops</p>

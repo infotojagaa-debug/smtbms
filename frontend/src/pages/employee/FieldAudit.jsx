@@ -438,7 +438,7 @@ const FieldAudit = () => {
                     <label className="text-xs font-bold text-slate-600 uppercase tracking-wider mb-1 block">Issue Title</label>
                     <input type="text" value={issueDetails.title} onChange={e => setIssueDetails({...issueDetails, title: e.target.value})} className="w-full px-4 py-2 border border-slate-200 rounded-lg" placeholder="e.g. Broken Display" />
                   </div>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div grid-cols-1 sm:grid-cols-2>
                     <div>
                       <label className="text-xs font-bold text-slate-600 uppercase tracking-wider mb-1 block">Severity</label>
                       <select value={issueDetails.severity} onChange={e => setIssueDetails({...issueDetails, severity: e.target.value})} className="w-full px-4 py-2.5 border border-slate-200 rounded-lg font-medium text-slate-700">
@@ -483,7 +483,7 @@ const FieldAudit = () => {
             </div>
 
             {evidenceFiles.length > 0 && (
-              <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div grid-cols-1 sm:grid-cols-2>
                 {evidenceFiles.map((f, i) => (
                   <div key={i} className="relative aspect-square rounded-xl overflow-hidden border border-slate-200 shadow-sm group">
                      <img src={URL.createObjectURL(f)} alt="evidence" className="w-full h-full object-cover group-hover:scale-105 transition-transform" />

@@ -116,7 +116,7 @@ const InvoiceDetail = () => {
             </div>
          </div>
 
-         <div className="grid grid-cols-2 gap-12 border-t border-b border-slate-50 py-12">
+         <div grid-cols-1 sm:grid-cols-2>
             <div>
                <p className="text-[10px] font-black uppercase text-slate-400 tracking-widest mb-4">Origin / From</p>
                <p className="font-black text-xs uppercase italic">{inv.invoiceType === 'sale' ? 'Gravity Enterprise Hub' : (inv.vendorId?.name || 'Partner Entity')}</p>

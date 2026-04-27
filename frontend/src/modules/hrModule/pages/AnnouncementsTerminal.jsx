@@ -178,7 +178,7 @@ const AnnouncementsTerminal = () => {
                        onChange={e => setFormData({...formData, desc: e.target.value})}
                      />
                   </div>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div grid-cols-1 sm:grid-cols-2>
                      <div className="space-y-2">
                         <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Signal Type</label>
                         <select className="w-full bg-slate-50 border border-slate-200 p-4 rounded-2xl outline-none font-black text-xs uppercase" value={formData.type} onChange={e => setFormData({...formData, type: e.target.value})}>

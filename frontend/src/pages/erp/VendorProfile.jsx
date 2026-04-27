@@ -109,7 +109,7 @@ const VendorProfile = () => {
                         <p className="text-[9px] font-black uppercase text-white/40 tracking-widest mb-1">Account Holder</p>
                         <p className="text-lg font-black italic uppercase">{vendor.bankDetails?.accountName || vendor.name}</p>
                      </div>
-                     <div className="grid grid-cols-2 gap-8 pt-8 border-t border-white/10">
+                     <div grid-cols-1 sm:grid-cols-2>
                         <div>
                            <p className="text-[9px] font-black uppercase text-white/40 tracking-widest mb-1">Account Number</p>
                            <p className="text-xs font-black font-mono tracking-widest">{vendor.bankDetails?.accountNo || 'XXXXXXXXXXXX'}</p>

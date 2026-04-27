@@ -61,7 +61,7 @@ const LeaveTerminal = () => {
     <div className="space-y-6 animate-in fade-in duration-700 font-sans max-w-[1600px] mx-auto pb-20">
       
       {/* --- FORMAL METRICS RIBBON --- */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div grid-cols-1 sm:grid-cols-2>
         {[
           { label: 'Pending Terminal', value: leaves.filter(l => l.status === 'Pending').length, icon: Clock, color: 'text-amber-600', bg: 'bg-amber-50/50', border: 'border-amber-100' },
           { label: 'Authorized Logs', value: leaves.filter(l => l.status === 'Approved').length, icon: CheckCircle, color: 'text-emerald-600', bg: 'bg-emerald-50/50', border: 'border-emerald-100' },

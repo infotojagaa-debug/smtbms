@@ -303,7 +303,7 @@ const TaskAssign = () => {
                    <label className="text-[8px] font-black text-slate-400 uppercase tracking-widest pl-2">Mission Brief</label>
                    <textarea rows="3" placeholder="Details..." value={formData.description} onChange={(e) => setFormData({...formData, description: e.target.value})} className="w-full px-5 py-4 bg-slate-50 border-2 border-slate-100 rounded-2xl text-[11px] font-black text-slate-900 focus:border-slate-900 transition-all outline-none resize-none"></textarea>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div grid-cols-1 sm:grid-cols-2>
                    <div className="space-y-1">
                       <label className="text-[8px] font-black text-slate-400 uppercase tracking-widest pl-2">Personnel</label>
                       <select required value={formData.assignedTo} onChange={(e) => setFormData({...formData, assignedTo: e.target.value})} className="w-full px-5 py-4 bg-slate-50 border-2 border-slate-100 rounded-2xl text-[10px] font-black uppercase text-slate-900 focus:border-slate-900 outline-none appearance-none">
