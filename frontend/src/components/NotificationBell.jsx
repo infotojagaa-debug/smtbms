@@ -56,8 +56,8 @@ const NotificationBell = () => {
       {isOpen && (
         <>
           <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)}></div>
-          <div className="absolute right-0 mt-6 w-[400px] bg-white rounded-[2.5rem] shadow-2xl border border-slate-100 z-50 overflow-hidden animate-in slide-in-from-top-4 duration-300">
-             <div className="px-8 py-6 bg-slate-50 flex justify-between items-center border-b border-slate-100">
+          <div className="absolute right-[-10px] sm:right-0 mt-6 w-[320px] sm:w-[400px] bg-white rounded-[2rem] sm:rounded-[2.5rem] shadow-2xl border border-slate-100 z-50 overflow-hidden animate-in slide-in-from-top-4 duration-300">
+             <div className="px-5 py-4 sm:px-8 sm:py-6 bg-slate-50 flex justify-between items-center border-b border-slate-100">
                 <h4 
                   onClick={() => { navigate('/notifications'); setIsOpen(false); }}
                   className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-900 italic cursor-pointer hover:text-rose-600 transition-colors"
@@ -77,7 +77,7 @@ const NotificationBell = () => {
                   <div 
                     key={idx} 
                     onClick={() => handleNotifClick(n)}
-                    className={`px-8 py-6 border-b border-slate-50 hover:bg-slate-50/80 transition-all cursor-pointer flex gap-5 group items-start relative ${!n.isRead ? 'bg-primary-50/10' : ''}`}
+                    className={`px-5 py-4 sm:px-8 sm:py-6 border-b border-slate-50 hover:bg-slate-50/80 transition-all cursor-pointer flex gap-4 sm:gap-5 group items-start relative ${!n.isRead ? 'bg-primary-50/10' : ''}`}
                   >
                      <div className={`p-3 rounded-xl bg-white border border-slate-100 group-hover:bg-slate-900 group-hover:text-white transition-all shadow-sm`}>
                         {getModuleIcon(n.type)}
