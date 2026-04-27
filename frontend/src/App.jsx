@@ -8,7 +8,6 @@ import Sidebar from './components/Sidebar';
 import Header from './components/Header';
 import ProtectedRoute from './components/ProtectedRoute';
 import RoleRoute from './components/RoleRoute';
-import MobileBottomNav from './components/MobileBottomNav';
 
 // Isolated Premium Admin Setup
 import AdminLayout from './modules/adminDashboard/layout/AdminLayout';
@@ -106,15 +105,8 @@ import { setConnected, updateOnlineCount, handleUserOnline, handleUserOffline } 
 import { AlertCircle, Clock } from 'lucide-react';
 
 function App() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
-
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   useEffect(() => {
     // 1. Socket Integration
@@ -198,7 +190,6 @@ function App() {
           }
         }}
       />
-      {isMobile && user && <MobileBottomNav />}
       <Routes>
         <Route path="/admin/dashboard" element={<RoleRoute allowedRoles={['Admin', 'Manager']}><AdminLayout /></RoleRoute>}>
            <Route index element={<SaasAdminDashboard />} />
@@ -264,7 +255,7 @@ function App() {
       </Routes>
     </>
   ) : (
-    <div className={`h-screen flex overflow-hidden font-sans bg-[#F1FFF0] ${isMobile ? 'flex-col' : ''}`}>
+    <div className="h-screen flex overflow-hidden font-sans bg-[#F1FFF0]">
       <Toaster 
         position="top-right" 
         containerStyle={{
@@ -281,13 +272,12 @@ function App() {
         }}
       />
       
-      {!isMobile && user && <Sidebar />}
-      {isMobile && user && <MobileBottomNav />}
+      {user && <Sidebar />}
       
       <div className="flex-1 flex flex-col min-w-0 h-screen overflow-hidden">
-        {!isMobile && user && <Header />}
+        {user && <Header />}
         
-        <main className={`flex-1 overflow-x-hidden overflow-y-auto ${user ? (isMobile ? 'p-4 pb-24' : 'p-6') : ''}`}>
+        <main className={`flex-1 overflow-x-hidden overflow-y-auto ${user ? 'p-6' : ''}`}>
           <Routes>
             <Route path="/login" element={!user ? <Login /> : <Navigate to="/" />} />
             
