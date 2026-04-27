@@ -66,7 +66,7 @@ const DocumentVault = () => {
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
         <div>
-           <h2 className="text-3xl font-black italic uppercase tracking-tight">Personnel <span className="text-indigo-600">Document Vault</span></h2>
+           <h2 className="text-2xl lg:text-3xl font-black italic uppercase tracking-tight">Personnel <span className="text-indigo-600">Document Vault</span></h2>
            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.4em] mt-1">Immutable Digital Archive & Verification Console</p>
         </div>
         <div className="flex items-center gap-4 bg-white p-2 rounded-2xl border border-slate-200 shadow-sm w-full md:w-auto">

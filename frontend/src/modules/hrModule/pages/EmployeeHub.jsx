@@ -190,7 +190,7 @@ const EmployeeHub = () => {
                  onChange={(e) => setSearch(e.target.value)}
                />
             </div>
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
                <div className="bg-indigo-50 rounded-2xl px-5 py-3 border border-indigo-100 flex items-center gap-4 min-w-[140px]">
                   <Users size={18} className="text-indigo-500" />
                   <div>

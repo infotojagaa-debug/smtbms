@@ -410,7 +410,7 @@ const PayrollEngine = () => {
                        </div>
                     </div>
 
-                    <div className="flex gap-4">
+                    <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
                        <button onClick={() => window.print()} className="flex-1 flex items-center justify-center gap-3 py-4 bg-slate-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-[0.3em] hover:bg-black transition-all">
                           <Printer size={16} /> Print Ledger
                        </button>

@@ -12,7 +12,7 @@ const AdminPlaceholder = ({ title, description }) => {
         </div>
       </div>
       
-      <h2 className="text-3xl font-black text-[#2B3674] mb-2 tracking-tight">{title} Module</h2>
+      <h2 className="text-2xl lg:text-3xl font-black text-[#2B3674] mb-2 tracking-tight">{title} Module</h2>
       <p className="text-slate-500 font-medium max-w-md text-center leading-relaxed">
         {description || `The ${title} management interface is currently undergoing active construction or integration.`}
       </p>
