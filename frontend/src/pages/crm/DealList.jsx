@@ -71,7 +71,7 @@ const DealList = () => {
     }
   };
 
-  const totalPipeline = stats.pipelineValue.reduce((acc, curr) => acc + curr.total, 0);
+  const totalPipeline = (stats?.pipelineValue || []).reduce((acc, curr) => acc + curr.total, 0);
   const winRatePercent = stats.winRate.total[0]?.count > 0 ? (stats.winRate.won[0]?.count / stats.winRate.total[0]?.count * 100).toFixed(1) : 0;
 
   return (
@@ -142,7 +142,7 @@ const DealList = () => {
                   stageDeals = [...stageDeals, ...leadDeals];
                 }
 
-                const stageValue = stageDeals.reduce((acc, curr) => acc + (curr.value || 0), 0);
+                const stageValue = (stageDeals || []).reduce((acc, curr) => acc + (curr.value || 0), 0);
                 return (
                    <div key={stageObj.id} className="w-80 shrink-0 space-y-6">
                       <div className="flex justify-between items-end border-b-2 border-slate-100 pb-4 ml-4">
