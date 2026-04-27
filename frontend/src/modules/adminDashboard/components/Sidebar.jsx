@@ -70,7 +70,7 @@ const navItems = [
   { name: 'Settings', icon: Settings, path: '/admin/dashboard/settings' }
 ];
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen, setIsOpen }) => {
   const location = useLocation();
   const dispatch = useDispatch();
   const { unreadCount } = useSelector((state) => state.notifications);
@@ -86,7 +86,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="w-64 bg-[#0F172A] flex flex-col h-full font-sans text-slate-300 shadow-xl z-20">
+    <div className={`fixed inset-y-0 left-0 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:relative lg:translate-x-0 transition-transform duration-300 ease-in-out w-64 bg-[#0F172A] flex flex-col h-full font-sans text-slate-300 shadow-xl z-50`}>
       {/* Brand Logo */}
       <div className="h-24 flex items-center px-6 border-b border-slate-800/50 flex-shrink-0">
         <div className="flex items-center gap-3">
@@ -119,7 +119,10 @@ const Sidebar = () => {
               <div className="relative group">
                 <Link 
                   to={item.path}
-                  onClick={() => hasSubItems && !isOpen && toggleMenu(item.name)}
+                  onClick={() => {
+                    if (hasSubItems && !isOpen) toggleMenu(item.name);
+                    else if (!hasSubItems && setIsOpen) setIsOpen(false);
+                  }}
                   className={`flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-200 relative overflow-hidden ${
                     isActive 
                       ? hasSubItems ? 'bg-slate-800/50 text-white font-bold' : 'bg-indigo-600 text-white font-bold shadow-lg shadow-indigo-600/20'
@@ -163,6 +166,7 @@ const Sidebar = () => {
                       <Link
                         key={sub.name}
                         to={sub.path}
+                        onClick={() => setIsOpen && setIsOpen(false)}
                         className={`block py-2 px-3 rounded-lg text-[12px] transition-all ${
                           location.pathname === sub.path 
                             ? 'text-indigo-400 font-bold bg-indigo-500/5' 

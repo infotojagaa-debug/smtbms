@@ -85,12 +85,12 @@ const Dashboard = () => {
     <div className="space-y-8 animate-in fade-in duration-700">
       
       {/* Header Info */}
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
          <div>
-            <h2 className="text-3xl font-black text-slate-900 tracking-tight">Executive Dashboard</h2>
-            <p className="text-slate-500 font-medium mt-1">Cross-vertical operational intelligence hub.</p>
+            <h2 className="text-2xl lg:text-3xl font-black text-slate-900 tracking-tight">Executive Dashboard</h2>
+            <p className="text-sm lg:text-base text-slate-500 font-medium mt-1">Cross-vertical operational intelligence hub.</p>
          </div>
-         <div className="flex gap-3">
+         <div className="flex flex-wrap gap-2 lg:gap-3">
             <div className="bg-white border border-slate-200 px-4 py-2 rounded-xl text-sm font-bold text-slate-700 shadow-sm">
                {new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
             </div>

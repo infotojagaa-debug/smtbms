@@ -1,17 +1,23 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { Clock, ExternalLink, Filter, Settings, TerminalSquare } from 'lucide-react';
+import { Clock, ExternalLink, Filter, Settings, TerminalSquare, Menu } from 'lucide-react';
 import { useState } from 'react';
 import NotificationBell from '../../../components/NotificationBell';
 
-const Topbar = () => {
+const Topbar = ({ toggleSidebar }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
 
   return (
-    <div className="h-24 bg-white border-b border-slate-100 flex items-center justify-between px-8 font-sans shadow-sm z-30 w-full relative">
-      <div className="flex items-center gap-12">
+    <div className="h-24 bg-white border-b border-slate-100 flex items-center justify-between px-4 lg:px-8 font-sans shadow-sm z-30 w-full relative">
+      <div className="flex items-center gap-4 lg:gap-12">
+         <button 
+           onClick={toggleSidebar} 
+           className="lg:hidden p-2 -ml-2 text-slate-500 hover:text-slate-900 transition-colors"
+         >
+           <Menu size={24} />
+         </button>
          <div>
             <h1 className="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
                Command Center
@@ -35,17 +41,17 @@ const Topbar = () => {
       </div>
 
       <div className="flex items-center gap-6">
-        <div className="flex items-center gap-3 pr-6 cursor-pointer group">
+        <div className="flex items-center gap-2 lg:gap-3 pr-2 lg:pr-6 cursor-pointer group">
           <div className="hidden md:block text-right">
             <p className="text-sm font-bold text-slate-900">{user?.name || 'Super Admin'}</p>
             <p className="text-[11px] font-medium text-indigo-600">Admin</p>
           </div>
-          <div className="w-10 h-10 rounded-full bg-[#0F172A] flex items-center justify-center text-white font-bold text-lg shadow-md ring-2 ring-transparent group-hover:ring-indigo-500 transition-all">
+          <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-[#0F172A] flex items-center justify-center text-white font-bold text-base lg:text-lg shadow-md ring-2 ring-transparent group-hover:ring-indigo-500 transition-all">
             {user?.name ? user.name.charAt(0).toUpperCase() : 'S'}
           </div>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="hidden lg:flex items-center gap-2">
            <NotificationBell />
            
            <button className="p-2.5 text-slate-400 hover:text-slate-700 transition-colors rounded-full hover:bg-slate-50 border border-slate-100 font-mono text-xs font-bold w-[38px] h-[38px] flex items-center justify-center tracking-tighter">
