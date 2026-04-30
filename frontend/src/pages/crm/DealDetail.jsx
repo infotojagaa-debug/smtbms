@@ -59,7 +59,7 @@ const DealDetail = () => {
 
   return (
     <div className="space-y-10 pb-20 max-w-7xl mx-auto">
-      <div className="flex justify-between items-start text-slate-900 border-b border-slate-100 pb-10">
+      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center text-slate-900 border-b border-slate-100 pb-10 gap-6">
         <div className="flex items-center gap-6">
            <Link to="/crm/deals" className="p-4 bg-white border border-slate-100 rounded-3xl text-slate-300 hover:text-slate-900 transition-all shadow-sm">
               <ArrowLeft size={22} />

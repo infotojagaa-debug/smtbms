@@ -12,7 +12,9 @@ import {
   User, 
   Calendar,
   AlertTriangle,
-  ArrowRightLeft
+  ArrowRightLeft,
+  X,
+  Send
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 
@@ -21,6 +23,8 @@ const MaterialDetail = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { selectedMaterial, movementHistory, isLoading } = useSelector((state) => state.material);
+  const [isTransferModalOpen, setIsTransferModalOpen] = useState(false);
+  const [transferData, setTransferData] = useState({ toDepartment: '', quantity: 1, reason: '' });
 
   useEffect(() => {
     dispatch(fetchMaterialById(id));
@@ -36,6 +40,39 @@ const MaterialDetail = () => {
     toast.success(`${filename} download started`);
   };
 
+  const handleTransfer = async (e) => {
+    e.preventDefault();
+    if (!transferData.toDepartment || !transferData.quantity) {
+      return toast.error("Please fill all required fields");
+    }
+    if (transferData.quantity > selectedMaterial.quantity) {
+      return toast.error("Insufficient stock magnitude for transfer");
+    }
+    try {
+      const payload = {
+        materialId: id,
+        fromDepartment: selectedMaterial.department,
+        ...transferData
+      };
+      
+      const res = await dispatch({ type: 'material/transfer/pending' }); // Dummy await, wait we have transferMaterial thunk!
+      // Let's dispatch the actual thunk
+      const actionResponse = await dispatch(transferMaterial(payload));
+      
+      if (actionResponse.error) {
+        toast.error(actionResponse.payload || 'Transfer execution failed');
+      } else {
+        toast.success("Material transferred successfully");
+        setIsTransferModalOpen(false);
+        setTransferData({ toDepartment: '', quantity: 1, reason: '' });
+        dispatch(fetchMaterialById(id));
+        dispatch(fetchHistory(id));
+      }
+    } catch (err) {
+      toast.error('Unexpected error during transfer');
+    }
+  };
+
   if (isLoading || !selectedMaterial) {
     return <div className="p-20 text-center animate-pulse font-black text-slate-400 uppercase tracking-widest text-xs">Accessing Ledger...</div>;
   }
@@ -44,7 +81,7 @@ const MaterialDetail = () => {
 
   return (
     <div className="max-w-6xl mx-auto space-y-8 pb-20">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="flex items-center gap-4">
           <button onClick={() => navigate(-1)} className="p-3 bg-white border border-slate-200 rounded-2xl hover:bg-slate-50 transition-all text-slate-500">
             <ArrowLeft size={20} />
@@ -55,7 +92,10 @@ const MaterialDetail = () => {
           </div>
         </div>
         <div className="flex gap-3">
-           <button className="flex items-center gap-2 px-6 py-3 bg-primary-600 text-white font-bold rounded-2xl shadow-xl shadow-primary-500/20 hover:bg-primary-700 transition-all">
+           <button 
+             onClick={() => setIsTransferModalOpen(true)}
+             className="flex items-center gap-2 px-6 py-3 bg-primary-600 text-white font-bold rounded-2xl shadow-xl shadow-primary-500/20 hover:bg-primary-700 transition-all"
+           >
              <ArrowRightLeft size={18} />
              Transfer Stock
            </button>
@@ -138,7 +178,7 @@ const MaterialDetail = () => {
                              <p className="font-black text-slate-900 text-sm italic underline decoration-primary-200 underline-offset-4">{move.fromDepartment} → {move.toDepartment}</p>
                              <span className="text-[10px] font-bold text-slate-400">{new Date(move.createdAt).toLocaleDateString()}</span>
                           </div>
-                          <p className="text-xs text-slate-500 font-medium mb-3">Transferred {move.quantity} units — "{move.reason}"</p>
+                          <p className="text-xs text-slate-500 font-medium mb-3">Transferred {move.quantity} units — "{move.remarks}"</p>
                           <div className="flex items-center gap-1.5 text-[9px] font-black uppercase text-slate-400 tracking-widest bg-slate-50 w-fit px-2 py-0.5 rounded-lg border border-slate-100">
                              <User size={10} /> {move.movedBy?.name}
                           </div>
@@ -200,6 +240,79 @@ const MaterialDetail = () => {
            </div>
         </div>
       </div>
+
+      {isTransferModalOpen && (
+         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-md animate-in fade-in duration-300">
+            <div className="bg-white w-full max-w-lg rounded-[3.5rem] shadow-2xl overflow-hidden border border-white/20 animate-in zoom-in-95 duration-300">
+               <div className="bg-slate-900 p-10 text-white relative">
+                  <div className="absolute top-0 right-0 w-48 h-48 bg-primary-600 opacity-20 blur-3xl"></div>
+                  <button onClick={() => setIsTransferModalOpen(false)} className="absolute top-10 right-10 text-white/50 hover:text-white transition-all"><X size={24} /></button>
+                  
+                  <div className="flex items-center gap-4 mb-2">
+                     <div className="w-10 h-10 rounded-2xl bg-primary-600 flex items-center justify-center text-white shadow-lg"><ArrowRightLeft size={20} /></div>
+                     <h3 className="text-xl font-black uppercase italic tracking-tight">Material Transfer</h3>
+                  </div>
+                  <p className="text-white/40 text-[10px] font-black uppercase tracking-[0.3em]">Reallocate resource between nodes</p>
+               </div>
+
+               <form onSubmit={handleTransfer} className="p-12 space-y-8">
+                  <div className="space-y-3">
+                     <label className="text-[10px] font-black uppercase text-slate-400 tracking-widest ml-4">Current Department</label>
+                     <input 
+                        disabled
+                        type="text" 
+                        className="w-full bg-slate-100 border-none rounded-3xl p-5 text-sm font-bold text-slate-500"
+                        value={selectedMaterial.department}
+                     />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                     <div className="space-y-3">
+                        <label className="text-[10px] font-black uppercase text-slate-400 tracking-widest ml-4">Target Department *</label>
+                        <input 
+                           required
+                           type="text" 
+                           placeholder="e.g. Production"
+                           className="w-full bg-slate-50 border-none rounded-3xl p-5 text-sm font-bold focus:ring-2 focus:ring-primary-500"
+                           value={transferData.toDepartment}
+                           onChange={(e) => setTransferData({...transferData, toDepartment: e.target.value})}
+                        />
+                     </div>
+                     <div className="space-y-3">
+                        <label className="text-[10px] font-black uppercase text-slate-400 tracking-widest ml-4">Transfer Magnitude *</label>
+                        <input 
+                           required
+                           type="number" 
+                           min="1"
+                           max={selectedMaterial.quantity}
+                           className="w-full bg-slate-50 border-none rounded-3xl p-5 text-sm font-bold focus:ring-2 focus:ring-primary-500"
+                           value={transferData.quantity}
+                           onChange={(e) => setTransferData({...transferData, quantity: e.target.value})}
+                        />
+                     </div>
+                  </div>
+
+                  <div className="space-y-3">
+                     <label className="text-[10px] font-black uppercase text-slate-400 tracking-widest ml-4">Reason / Remarks</label>
+                     <input 
+                        type="text" 
+                        placeholder="Why is this being moved?"
+                        className="w-full bg-slate-50 border-none rounded-3xl p-5 text-sm font-bold focus:ring-2 focus:ring-primary-500"
+                        value={transferData.reason}
+                        onChange={(e) => setTransferData({...transferData, reason: e.target.value})}
+                     />
+                  </div>
+
+                  <button 
+                     type="submit"
+                     className="w-full py-5 bg-primary-600 text-white font-black uppercase tracking-widest text-[11px] rounded-3xl shadow-2xl hover:bg-primary-700 transition-all active:scale-95 flex items-center justify-center gap-3 group"
+                  >
+                     Authorize Transfer <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  </button>
+               </form>
+            </div>
+         </div>
+      )}
     </div>
   );
 };

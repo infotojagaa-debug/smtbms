@@ -94,7 +94,7 @@ const Header = ({ toggleSidebar }) => {
          </div>
       </div>
 
-      <div className="flex items-center gap-5">
+      <div className="flex items-center gap-3 sm:gap-5">
          <div className="flex items-center gap-3">
             <div className="hidden md:flex flex-col items-end">
                <p className="text-sm font-bold text-slate-900 leading-none">{user?.name}</p>
@@ -109,7 +109,7 @@ const Header = ({ toggleSidebar }) => {
 
          <div className="p-1 rounded-full flex gap-1 bg-slate-50 border border-slate-200 relative">
             <NotificationBell />
-            <button className="p-2.5 transition-all text-slate-500 hover:text-slate-900 hover:bg-white rounded-full">
+            <button className="hidden sm:block p-2.5 transition-all text-slate-500 hover:text-slate-900 hover:bg-white rounded-full">
                <Terminal size={18} />
             </button>
             <div ref={settingsRef} className="relative">

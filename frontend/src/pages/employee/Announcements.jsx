@@ -129,8 +129,8 @@ const Announcements = () => {
       </div>
 
       {isModalOpen && (
-        <div className="fixed inset-0 z-[999] flex items-center justify-center p-12 bg-slate-950/30 backdrop-blur-md animate-fade-in font-sans">
-           <div className="bg-white rounded-[3rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.25)] w-full max-w-2xl overflow-hidden transform animate-enter relative flex flex-col max-h-[70vh] border border-white/50 m-12">
+        <div className="fixed inset-0 z-[999] flex items-center justify-center p-4 sm:p-12 bg-slate-950/30 backdrop-blur-md animate-fade-in font-sans">
+           <div className="bg-white rounded-[3rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.25)] w-full max-w-2xl overflow-hidden transform animate-enter relative flex flex-col max-h-[70vh] border border-white/50">
               
               <div className="flex justify-between items-center px-10 py-8 border-b border-slate-50">
                 <h3 className="text-2xl font-black text-[#0F172A] tracking-tighter italic uppercase">Dispatch Signal</h3>
@@ -142,7 +142,7 @@ const Announcements = () => {
                 </button>
               </div>
 
-              <form onSubmit={handleCreate} className="p-10 space-y-8 overflow-y-auto custom-scrollbar">
+              <form onSubmit={handleCreate} className="p-6 sm:p-10 space-y-8 overflow-y-auto custom-scrollbar">
                  <div className="space-y-3">
                     <label className="text-[10px] font-black text-indigo-500 uppercase tracking-[0.3em] ml-1">Transmission Title</label>
                     <input 
@@ -165,7 +165,7 @@ const Announcements = () => {
                     ></textarea>
                  </div>
 
-                 <div grid-cols-1 sm:grid-cols-2>
+                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                     <div className="space-y-3">
                        <label className="text-[10px] font-black text-indigo-500 uppercase tracking-[0.3em] ml-1">Variant Type</label>
                        <select value={formData.type} onChange={e => setFormData({...formData, type: e.target.value})} className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 text-xs font-black text-slate-800 focus:outline-none focus:border-indigo-500 cursor-pointer shadow-sm">

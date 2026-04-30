@@ -21,6 +21,7 @@ import {
   Database
 } from 'lucide-react';
 import toast from 'react-hot-toast';
+import api from '../../utils/api';
 
 const CreatePurchaseOrder = () => {
   const dispatch = useDispatch();
@@ -111,16 +112,9 @@ const CreatePurchaseOrder = () => {
         category: newMat.category || 'General'
       };
 
-      const res = await fetch('/api/materials', {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${user.token}`
-        },
-        body: JSON.stringify(payload)
-      });
-      const data = await res.json();
-      if (res.ok) {
+      const res = await api.post('/api/materials', payload);
+      const data = res.data;
+      if (res.status === 201 || res.status === 200) {
         toast.success('Resource provisioned successfully.');
         dispatch(fetchMaterials());
         setIsModalOpen(false);
@@ -341,7 +335,7 @@ const CreatePurchaseOrder = () => {
                </div>
             </div>
 
-            <div grid-cols-1 sm:grid-cols-2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                <button 
                   onClick={() => handleSubmit('draft')}
                   className="py-5 bg-white border border-slate-100 text-slate-900 font-black uppercase tracking-widest text-[10px] rounded-3xl shadow-sm hover:bg-slate-50 transition-all flex items-center justify-center gap-2"
@@ -399,7 +393,7 @@ const ResourceModal = ({ isOpen, onClose, onSave, newMat, setNewMat }) => {
                   />
                </div>
 
-               <div grid-cols-1 sm:grid-cols-2>
+               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-3">
                      <label className="text-[10px] font-black uppercase text-slate-400 tracking-widest ml-4">Unit Specification</label>
                      <select 
@@ -422,7 +416,7 @@ const ResourceModal = ({ isOpen, onClose, onSave, newMat, setNewMat }) => {
                   </div>
                </div>
 
-               <div grid-cols-1 sm:grid-cols-2>
+               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-3">
                      <label className="text-[10px] font-black uppercase text-slate-400 tracking-widest ml-4">Minimum Threshold</label>
                      <input 
